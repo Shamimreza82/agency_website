@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "../sheared/Button";
 import WhatsAppButton from "./WhatsAppButton";
+import EmailForm from "../form/BookingCallForm";
 
 const Hero = () => {
   return (
@@ -17,16 +18,6 @@ const Hero = () => {
             professionals worldwide—delivered at a fair and competitive price.
           </p>
           <div className="lg:w-6/12 grid grid-cols-1 items-center mx-auto lg:flex gap-4">
-            <input
-              className="bg-white border text-gray-900 text-sm rounded-full focus:border-[#02FF95] block w-90 mx-auto px-5 py-3"
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Your work email"
-            />
-            <div className="flex justify-center lg:justify-start w-full lg:w-auto">
-              <Button />
-            </div>
           </div>
           <div className="grid grid-cols-1 lg:flex items-center gap-2 mt-5 w-11/12 mx-auto justify-center">
             <p className="text-center text-accent">4.6/5</p>

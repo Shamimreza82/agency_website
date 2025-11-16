@@ -43,7 +43,7 @@ export default function Navbar() {
                         <li><Link href="/about">About us</Link></li>
                         <li>
                             <Link
-                                href="/book-call"
+                                href="/book-a-call"
                                 className="bg-[#00FF85] text-black font-semibold rounded-full px-4 py-2 mt-2 block text-center hover:bg-[#00e676]"
                             >
                                 Book a call
