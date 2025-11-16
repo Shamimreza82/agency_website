@@ -25,21 +25,21 @@ const AboutUs: React.FC = () => {
     <div className="max-w-7xl mx-auto px-4 py-16">
       {/* Header */}
       <div className="text-center mb-30">
-        <p className="text-lg text-gray-400 uppercase mb-2">About</p>
+        <p className="text-lg text-gray-400 uppercase mb-2">About Us</p>
         <h1 className="text-4xl text-primary font-semibold mb-2">
-          The dream team of digital marketing.
+          Meet the Dream Team.
         </h1>
-        <p className="text-lg text-accent">
-          We Grow Businesses Online. Period.
+        <p className="text-lg text-accent lg:w-6/12 mx-auto">
+          We craft beautiful designs and build powerful websites that grow businesses online.
         </p>
       </div>
 
       {/* Team Members */}
-      <div className="flex flex-col md:flex-row gap-6 justify-center">
+      <div className="flex flex-col md:flex-row gap-30 lg:gap-15 justify-center">
         {teamMembers.map((member) => (
           <div
             key={member.name}
-            className="card bg-gray-900 w-80 shadow-sm relative overflow-visible"
+            className="card bg-gray-900 shadow-sm relative overflow-visible w-96 mx-auto lg:mx-0"
           >
             {/* Image */}
             <div className="relative -mt-20">
