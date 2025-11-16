@@ -5,6 +5,10 @@
   themes: dark --default;
 };
 
+html {
+  scroll-behavior: smooth;
+}
+
 @plugin "daisyui/theme" {
   name: "dark";
   default: true;
