@@ -9,7 +9,14 @@ export default function Home() {
     <div>
       {/* <ComingSoon /> */}
       <Hero />
-     
+      <Hero />
+      <Hero />
+      <Hero />
+      <Hero />
+      <Hero />
+      <Hero />
+      <Hero />
+      <Hero />
     </div>
   );
 }
