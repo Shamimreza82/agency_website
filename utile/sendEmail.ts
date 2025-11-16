@@ -1,7 +1,6 @@
 import { transporter } from "@/lib/config/nodemailer";
 
 
-
 export const sendEmail = async (to: string, subject: string, html: string) => {
     // Wrap in an async IIFE so we can use await.
     const info = await transporter.sendMail({
