@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -14,6 +15,21 @@ const Footer = () => {
       </h2>
     </Link>
     <p>Where Creativity Meets Code.</p>
+
+    <div className="flex gap-4 mt-4">
+        <Link href="https://www.facebook.com/">
+            <FaFacebook className="text-2xl" />
+        </Link>
+        <Link href="https://www.linkedin.com/">
+            <FaLinkedin className="text-2xl" />
+        </Link>
+        <Link href="https://www.instagram.com/">
+            <FaInstagram className="text-2xl" />
+        </Link>
+        <Link href="https://www.youtube.com/">
+            <FaYoutube className="text-2xl" />
+        </Link>
+    </div>
   </aside>
 
   {/* Vertical Line */}
@@ -21,7 +37,7 @@ const Footer = () => {
 
   {/* Column 2 */}
   <nav>
-    <h6 className="footer-title text-accent text-lg border-b-2">Services</h6>
+    <h6 className="footer-title text-primary text-lg">Services</h6>
     <a className="link link-hover">UI/UX Design</a>
     <a className="link link-hover">Frontend Development</a>
     <a className="link link-hover">Backend Development</a>
@@ -36,7 +52,7 @@ const Footer = () => {
 
   {/* Column 3 */}
   <nav>
-    <h6 className="footer-title text-accent text-lg border-b-2">Company</h6>
+    <h6 className="footer-title text-primary text-lg">Company</h6>
     <Link href="/about">
       <p className="link link-hover">About</p>
     </Link>
@@ -48,7 +64,7 @@ const Footer = () => {
 
   {/* Column 4 */}
   <nav>
-    <h6 className="footer-title text-accent text-lg border-b-2">Legal</h6>
+    <h6 className="footer-title text-primary text-lg">Legal</h6>
     <a className="link link-hover">Terms of use</a>
     <a className="link link-hover">Privacy policy</a>
   </nav>
