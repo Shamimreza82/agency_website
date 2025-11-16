@@ -39,7 +39,7 @@ const AboutUs: React.FC = () => {
         {teamMembers.map((member) => (
           <div
             key={member.name}
-            className="card bg-gray-900 shadow-sm relative overflow-visible w-96 mx-auto lg:mx-0"
+            className="card bg-gradient-to-b to-[#0B1926] from-transparent pointer-events-none shadow-sm relative overflow-visible w-96 mx-auto lg:mx-0"
           >
             {/* Image */}
             <div className="relative -mt-20">
