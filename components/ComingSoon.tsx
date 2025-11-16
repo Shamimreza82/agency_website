@@ -25,6 +25,7 @@ const ComingSoon = () => {
             </div>
             <p className="mt-2 font-medium">Al Mamun</p>
             <p className="text-gray-400 text-sm">UI/UX & Frontend Developer</p>
+
           </div>
         </div>
       </div>
