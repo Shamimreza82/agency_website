@@ -4,7 +4,7 @@ import WhatsAppButton from "./WhatsAppButton";
 
 const Hero = () => {
   return (
-    <div className="hero min-h-screen">
+    <div className="py-50">
       <div className="hero-content flex-col lg:flex-row w-11/12 mx-auto">
         <div>
           <h1 className="text-6xl font-bold text-center">
