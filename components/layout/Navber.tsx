@@ -89,13 +89,10 @@ export default function Navbar() {
                             Book a call
                         </Link> */}
 
-                        <Button />
+                        <Button href="/book-a-call" />
                     </div>
                 </ul>
-
             </nav>
-
-
         </header>
     );
 }

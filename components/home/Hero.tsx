@@ -1,4 +1,5 @@
 import React from "react";
+import WhatsAppButton from "./WhatsAppButton";
 
 const Hero = () => {
   return (
@@ -98,6 +99,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+       <WhatsAppButton />
     </div>
   );
 };
