@@ -1,11 +1,10 @@
 import React from "react";
 
 const Hero = () => {
-
-
-  
   return (
-    <div className="hero bg-base-200 min-h-screen">
+    <div
+      className="hero min-h-screen"
+    >
       <div className="hero-content flex-col lg:flex-row w-11/12 mx-auto">
         <div>
           <h1 className="text-5xl font-bold text-center">
@@ -36,62 +35,62 @@ const Hero = () => {
               <input
                 type="radio"
                 name="rating-11"
-                className="mask mask-star-2 mask-half-1 bg-green-500"
+                className="mask mask-star-2 mask-half-1 bg-[#FDB022]"
                 aria-label="0.5 star"
               />
               <input
                 type="radio"
                 name="rating-11"
-                className="mask mask-star-2 mask-half-2 bg-green-500"
+                className="mask mask-star-2 mask-half-2 bg-[#FDB022]"
                 aria-label="1 star"
               />
               <input
                 type="radio"
                 name="rating-11"
-                className="mask mask-star-2 mask-half-1 bg-green-500"
+                className="mask mask-star-2 mask-half-1 bg-[#FDB022]"
                 aria-label="1.5 star"
               />
               <input
                 type="radio"
                 name="rating-11"
-                className="mask mask-star-2 mask-half-2 bg-green-500"
+                className="mask mask-star-2 mask-half-2 bg-[#FDB022]"
                 aria-label="2 star"
               />
               <input
                 type="radio"
                 name="rating-11"
-                className="mask mask-star-2 mask-half-1 bg-green-500"
+                className="mask mask-star-2 mask-half-1 bg-[#FDB022]"
                 aria-label="2.5 star"
               />
               <input
                 type="radio"
                 name="rating-11"
-                className="mask mask-star-2 mask-half-2 bg-green-500"
+                className="mask mask-star-2 mask-half-2 bg-[#FDB022]"
                 aria-label="3 star"
               />
               <input
                 type="radio"
                 name="rating-11"
-                className="mask mask-star-2 mask-half-1 bg-green-500"
+                className="mask mask-star-2 mask-half-1 bg-[#FDB022]"
                 aria-label="3.5 star"
               />
               <input
                 type="radio"
                 name="rating-11"
-                className="mask mask-star-2 mask-half-2 bg-green-500"
+                className="mask mask-star-2 mask-half-2 bg-[#FDB022]"
                 aria-label="4 star"
               />
               <input
                 type="radio"
                 name="rating-11"
-                className="mask mask-star-2 mask-half-1 bg-green-500"
+                className="mask mask-star-2 mask-half-1 bg-[#FDB022]"
                 aria-label="4.5 star"
                 defaultChecked
               />
               <input
                 type="radio"
                 name="rating-11"
-                className="mask mask-star-2 mask-half-2 bg-green-500"
+                className="mask mask-star-2 mask-half-2 bg-[#FDB022]"
                 aria-label="5 star"
               />
             </div>

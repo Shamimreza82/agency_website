@@ -16,3 +16,7 @@
 *{
   font-family: 'inter', sans-serif;
 };
+
+body {
+  @apply bg-gradient-to-r from-[#0B1926] to-[#020606];
+}

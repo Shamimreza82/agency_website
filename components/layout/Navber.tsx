@@ -2,11 +2,11 @@ import Link from "next/link";
 
 export default function Navbar() {
     return (
-        <header className="px-6 flex justify-between lg:px-10 py-4 sticky top-0 z-50 bg-[#02121A] text-white border-b border-white/5 backdrop-blur-xl">
+        <header className="px-6 flex justify-between lg:px-10 py-4 sticky top-0 z-50 text-white backdrop-blur-xl">
             {/* Left Logo */}
             <div className="flex items-center gap-2">
              
-                    <h1 className="text-2xl font-bold text-primary tracking-wide">Cool Man</h1>
+                    <h1 className="text-2xl font-bold text-primary tracking-wide">SM Agency</h1>
 
                 {/* Mobile Menu Button */}
                 <div className="dropdown lg:hidden">
