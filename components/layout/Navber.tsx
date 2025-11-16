@@ -3,11 +3,12 @@ import Button from "../sheared/Button";
 
 export default function Navbar() {
     return (
-        <header className="px-6 flex justify-between lg:px-10 py-4 sticky top-0 z-50 text-white backdrop-blur-xl">
+        <header className="w-11/12 mx-auto px-6 flex justify-between lg:px-10 py-4 sticky top-0 z-50 text-white backdrop-blur-xl">
             {/* Left Logo */}
             <div className="flex items-center gap-2">
-             
-                    <h1 className="text-2xl font-bold text-primary tracking-wide">SM Agency</h1>
+                <Link href="/">
+                    <h2 className="text-2xl font-bold"><span className="text-2xl font-bold text-primary">SM </span>Agency</h2>
+                </Link>
 
                 {/* Mobile Menu Button */}
                 <div className="dropdown lg:hidden">
@@ -84,7 +85,7 @@ export default function Navbar() {
                     <div className="hidden lg:flex">
                         {/* <Link
                             href="/book-call"
-                            className="bg-[#00FF85] text-black font-semibold rounded-full px-6 py-2 hover:bg-[#00e676] transition-all shadow-md"
+                            className="bg-[#00FF85] text-secondary font-semibold rounded-full px-6 py-2 transition-all shadow-md"
                         >
                             Book a call
                         </Link> */}

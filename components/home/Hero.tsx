@@ -1,37 +1,36 @@
 import React from "react";
+import Button from "../sheared/Button";
 import WhatsAppButton from "./WhatsAppButton";
 
 const Hero = () => {
   return (
-    <div
-      className="hero min-h-screen"
-    >
+    <div className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row w-11/12 mx-auto">
         <div>
-          <h1 className="text-5xl font-bold text-center">
+          <h1 className="text-6xl font-bold text-center">
             Designing experiences.
             <br />
             <span className="text-primary">Developing</span> results.
           </h1>
-          <p className="py-6 text-center w-lg mx-auto text-accent">
-            Get your desired design services from our talented designers and
-            developers around the word at a respectable price.
+          <p className="text-lg py-6 text-center lg:w-8/12 mx-auto text-accent">
+            Get top-quality design and development services from our skilled
+            professionals worldwide—delivered at a fair and competitive price.
           </p>
-          <div className="flex gap-4">
+          <div className="lg:w-6/12 grid grid-cols-1 items-center mx-auto lg:flex gap-4">
             <input
-              className="bg-white border text-gray-900 text-sm rounded-full focus:border-[#02FF95] block w-full px-5"
+              className="bg-white border text-gray-900 text-sm rounded-full focus:border-[#02FF95] block w-90 mx-auto px-5 py-3"
               type="email"
               name="email"
               id="email"
               placeholder="Your work email"
             />
-            <button className="btn btn-primary text-secondary rounded-full">
-              Book a call
-            </button>
+            <div className="flex justify-center lg:justify-start w-full lg:w-auto">
+              <Button />
+            </div>
           </div>
-          <div className="flex items-center gap-2 mt-5 w-11/12 mx-auto">
+          <div className="grid grid-cols-1 lg:flex items-center gap-2 mt-5 w-11/12 mx-auto justify-center">
             <p className="text-center text-accent">4.6/5</p>
-            <div className="rating rating-sm rating-half">
+            <div className="rating rating-sm rating-half mx-auto lg:mx-0">
               <input type="radio" name="rating-11" className="rating-hidden" />
               <input
                 type="radio"
@@ -95,7 +94,7 @@ const Hero = () => {
                 aria-label="5 star"
               />
             </div>
-            <p>15+ Business, 45+ Happy Clients</p>
+            <p className="text-center">35+ Business, 1500+ Happy Clients</p>
           </div>
         </div>
       </div>
