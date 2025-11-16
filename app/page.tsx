@@ -1,15 +1,26 @@
 
-import AboutUs from "@/components/AboutUs/AboutUs";
 import Hero from "@/components/home/Hero";
+import "locomotive-scroll/dist/locomotive-scroll.css";
+import AboutUs from "@/components/AboutUs/AboutUs";
+import Footer from "@/components/layout/Footer";
+import LocoWrapper from "@/components/LocoWrapper";
 import WhatsAppButton from "@/components/home/WhatsAppButton";
-import Navbar from "@/components/layout/Navber";
+
 
 
 export default function Home() {
+
+
+
+
+
   return (
-    <div>
-      {/* <ComingSoon /> */}
-      <Hero />
-    </div>
+    <>
+      <LocoWrapper>
+        <Hero />
+        <AboutUs />
+        <Footer />
+      </LocoWrapper>
+    </>
   );
 }
