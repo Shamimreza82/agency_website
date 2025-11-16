@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Button from "../sheared/Button";
 
 export default function Navbar() {
     return (
@@ -81,12 +82,14 @@ export default function Navbar() {
                     <li><Link href="/about" className="hover:text-[#00FF85] transition">About us</Link></li>
                     {/* Desktop CTA */}
                     <div className="hidden lg:flex">
-                        <Link
+                        {/* <Link
                             href="/book-call"
                             className="bg-[#00FF85] text-black font-semibold rounded-full px-6 py-2 hover:bg-[#00e676] transition-all shadow-md"
                         >
                             Book a call
-                        </Link>
+                        </Link> */}
+
+                        <Button />
                     </div>
                 </ul>
 
