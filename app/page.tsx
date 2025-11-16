@@ -15,7 +15,6 @@ export default function Home() {
     <LocoWrapper>
       <Hero />
       <AboutUs />
-      <Footer />
     </LocoWrapper>
   );
 }
