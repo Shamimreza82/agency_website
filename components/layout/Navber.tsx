@@ -4,7 +4,7 @@ export default function Navbar() {
 
     
   return (
-    <header className="navbar px-6 py-4 bg-neutral text-white backdrop-blur-md/30 sticky top-0 z-50">
+    <header className="navbar px-6 py-4 text-accent sticky top-0 z-50">
       {/* Left - Mobile */}
       <div className="navbar-start">
         <div className="dropdown">
@@ -54,7 +54,7 @@ export default function Navbar() {
           <li>
             <Link
               href="/"
-              className="text-green-400 border-b-2 border-green-400 pb-1 hover:text-green-300 transition"
+              className="text-primary border-b-2 border-primary pb-1 hover:text-green-300 transition"
             >
               Home
             </Link>
@@ -77,7 +77,7 @@ export default function Navbar() {
       <div className="navbar-end">
         <Link
           href="/book-call"
-          className="btn bg-green-500 text-black rounded-full px-6 hover:bg-green-400 transition shadow-md"
+          className="btn bg-primary text-black rounded-full px-6 hover:bg-primary transition shadow-md"
         >
           Book a call
         </Link>
