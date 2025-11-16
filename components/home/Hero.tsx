@@ -1,7 +1,6 @@
-import React from "react";
-import Button from "../sheared/Button";
+
 import WhatsAppButton from "./WhatsAppButton";
-import EmailForm from "../form/BookingCallForm";
+
 
 const Hero = () => {
   return (
