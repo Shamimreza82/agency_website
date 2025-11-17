@@ -5,7 +5,7 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 const Footer = () => {
   return (
     <div className="bg-[#02121A] text-white mt-20">
-      <footer className="footer w-9/12 mx-auto sm:footer-horizontal text-base-content p-10">
+      <footer className="footer w-10/12 mx-auto sm:footer-horizontal text-base-content p-10">
 
   {/* Column 1 */}
   <aside>
