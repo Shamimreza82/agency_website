@@ -31,8 +31,9 @@ export default function Navbar() {
     href && (pathname === href || (href !== "/" && pathname.startsWith(href)));
 
   return (
-    <header className="w-11/12 mx-auto px-6 lg:px-10 py-4 flex justify-between items-center sticky top-0 z-50 text-white backdrop-blur-xl">
-      {/* Logo */}
+    <header className="px-6 lg:px-10 py-4 sticky top-0 z-50 backdrop-blur-xl">
+     <div className="w-11/12 mx-auto flex items-center justify-between text-white">
+       {/* Logo */}
       <Link href="/" className="flex items-center gap-2">
         <h2 className="text-2xl font-bold">
           <span className="text-primary">SM </span>Agency
@@ -54,7 +55,7 @@ export default function Navbar() {
             </svg>
           </button>
 
-          <ul className="menu menu-sm dropdown-content mt-3  p-4 shadow bg-[#02121A] rounded-xl border border-white/10 w-56">
+          <ul className="menu menu-sm dropdown-content right-0  mt-3 p-4 shadow bg-[#02121A] rounded-xl border border-white/10 w-56">
             {NAV_ITEMS.map((item) =>
               item.submenu ? (
                 <li key={item.name}>
@@ -113,7 +114,7 @@ export default function Navbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m19 9-7 7-7-7" />
                 </svg>
               </summary>
-              <ul className="absolute left-0 mt-3 p-3 bg-[#02121A] shadow-xl rounded-xl border border-white/10 w-44 hidden group-hover:block">
+              <ul className="absolute left-3 mt-3 p-3 bg-[#02121A] shadow-xl rounded-xl border border-white/10 w-44 hidden group-hover:block">
                 {item.submenu.map((sub) => (
                   <li key={sub.href}>
                     <Link
@@ -142,6 +143,7 @@ export default function Navbar() {
         {/* Desktop CTA */}
         <Button href="/book-a-call" />
       </nav>
+     </div>
     </header>
   );
 }
