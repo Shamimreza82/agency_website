@@ -4,9 +4,10 @@ import { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import AboutUs from "@/components/AboutUs/AboutUs";
 import JsonLd from "@/components/sheared/JsonLd";
-import ReactTypingEffect from "react-typing-effect";
 import FAQ from "@/components/faq/FAQ";
 import HoverCards from "@/components/home/HoverCards";
+import ParallaxAutoplay from "@/components/home/component/ParallaxAutoplay";
+import ParallaxSection from "@/components/home/component/ParallaxSection";
 
 
 export const metadata: Metadata = {
@@ -111,6 +112,9 @@ export default function Home() {
       <JsonLd data={breadcrumbSchema} />
 
       <Hero />
+      
+      <ParallaxAutoplay />
+      <ParallaxSection />
       <AboutUs />
       <HoverCards />
       <FAQ />
