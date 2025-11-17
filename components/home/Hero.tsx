@@ -105,6 +105,19 @@ import WhatsAppButton from "./WhatsAppButton";
 import { motion } from "framer-motion"; // optional for smooth animations
 
 const Hero = () => {
+
+  const rating = <div className="rating rating-sm rating-half">
+    {Array.from({ length: 10 }).map((_, i) => (
+      <input
+        key={i}
+        type="radio"
+        name="rating-11"
+        className={`mask mask-star-2 mask-half-${i % 2 === 0 ? "1" : "2"} bg-[#FDB022]`}
+        aria-label={`${(i + 1) * 0.5} star`}
+        defaultChecked={i === 8}
+      />
+    ))}
+  </div>
   return (
     <section className="hero min-h-screen bg-gray-900 flex items-center">
       <div className="hero-content flex-col lg:flex-row-reverse w-11/12 mx-auto gap-10 lg:gap-16">
@@ -143,30 +156,22 @@ const Hero = () => {
             professionals worldwide—delivered at a fair and competitive price.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mt-4">
+          <div>
             <WhatsAppButton />
-            <button className="btn btn-primary btn-lg">
+            <button className="btn btn-primary btn-lg text-secondary rounded-full px-6">
               Explore Services
             </button>
           </div>
 
-          <figure className="mt-10 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
-            <figcaption className="text-accent text-center sm:text-left font-semibold">
-              <span className="font-bold">4.6/5</span> based on 1500+ reviews
+          <figure className="mt-10 items-center gap-4 justify-center lg:justify-start space-y-3">
+            <figcaption className="text-accent text-center sm:text-left font-semibold items-center">
+
+              <span className="font-bold text-xl">4.6/5 </span>{rating}
             </figcaption>
-            <div className="rating rating-sm rating-half">
-              {Array.from({ length: 10 }).map((_, i) => (
-                <input
-                  key={i}
-                  type="radio"
-                  name="rating-11"
-                  className={`mask mask-star-2 mask-half-${i % 2 === 0 ? "1" : "2"} bg-[#FDB022]`}
-                  aria-label={`${(i + 1) * 0.5} star`}
-                  defaultChecked={i === 8}
-                />
-              ))}
-            </div>
+
             <p className="font-bold text-accent text-center sm:text-left">
+              Based on 1500+ reviews
+              <br />
               35+ Businesses, 1500+ Happy Clients
             </p>
           </figure>
