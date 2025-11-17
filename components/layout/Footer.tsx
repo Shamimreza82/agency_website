@@ -3,13 +3,8 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-<<<<<<< HEAD
-    <div className="bg-[#02121A] text-white mt-20">
-      <footer className="footer w-10/12 mx-auto sm:footer-horizontal text-base-content p-10">
-=======
     <footer className="bg-[#02121A] text-white mt-20">
       <div className="footer lg:w-9/12 mx-auto sm:footer-horizontal text-base-content p-10">
->>>>>>> 11880f281abd95bf4e24e8d9628bc4ee6084e304
 
         <aside>
           <Link href="/">

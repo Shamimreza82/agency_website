@@ -39,7 +39,7 @@ const AboutUs: React.FC = () => {
         {teamMembers.map((member) => (
           <article
             key={member.name}
-            className="card bg-gradient-to-b to-[#0B1926] from-transparent pointer-events-none shadow-sm relative overflow-visible w-96 mx-auto lg:mx-0"
+            className="card bg-gradient-to-b to-[#0B1926] from-transparent pointer-events-none shadow-sm relative overflow-visible w-96 mx-auto lg:mx-0 rounded-xl"
           >
             <figure className="relative -mt-20">
               <Image
@@ -51,10 +51,10 @@ const AboutUs: React.FC = () => {
               <figcaption className="sr-only">{member.name}, {member.role}</figcaption>
             </figure>
 
-            <div className="p-4">
+            <div>
               <h2 className="w-full text-lg font-semibold text-secondary bg-primary inline-block px-4 py-1">{member.name}</h2>
-              <p className="text-accent text-2xl py-4">{member.role}</p>
-              <p className="text-sm text-gray-400">{member.description}</p>
+              <p className="text-accent text-2xl px-4 mt-4">{member.role}</p>
+              <p className="text-sm text-gray-400 px-4 py-2 mb-4">{member.description}</p>
             </div>
           </article>
         ))}
