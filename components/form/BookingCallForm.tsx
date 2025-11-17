@@ -4,7 +4,6 @@
 import { useForm, SubmitHandler } from "react-hook-form";
 import { toast } from "sonner";
 import { CalendarIcon, ClockIcon, MailIcon, UserIcon } from "lucide-react";
-import Button from "../sheared/Button";
 
 type FormValues = {
   name?: string;
@@ -14,10 +13,12 @@ type FormValues = {
 };
 
 // Reusable form input component
-const FormInput = ({ icon: Icon, ...props }: any) => (
+const FormInput = ({ icon: Icon, id, ...props }: any) => (
   <div className="relative">
+    <label htmlFor={id} className="sr-only">{props.placeholder}</label>
     <Icon className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
     <input
+      id={id}
       {...props}
       className={`
         pl-12 pr-4 py-3 w-full 
@@ -61,7 +62,7 @@ export default function BookingCallForm() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-6 bg-[#0c1015] relative">
+    <section className="min-h-screen flex items-center justify-center p-6 bg-[#0c1015] relative">
       
       {/* Background Grid + Gradient Glow */}
       <div className="absolute inset-0 bg-grid-white/[0.03] pointer-events-none"></div>
@@ -71,26 +72,28 @@ export default function BookingCallForm() {
       <div className="relative w-full max-w-lg p-8 md:p-10 rounded-2xl  
         bg-[#111418]/80 backdrop-blur-xl shadow-2xl border border-white/10"
       >
-        <h2 className="text-3xl font-bold text-white mb-2">
-          Book a Discovery Call
-        </h2>
-        <p className="text-gray-400 mb-8">
-          Choose a preferred date & time and we’ll discuss your project details.
-        </p>
+        <header>
+          <h2 className="text-3xl font-bold text-white mb-2">
+            Book a Discovery Call
+          </h2>
+          <p className="text-gray-400 mb-8">
+            Choose a preferred date & time and we’ll discuss your project details.
+          </p>
+        </header>
 
         <form className="flex flex-col gap-6" onSubmit={handleSubmit(onSubmit)}>
           
-          {/* Name (optional) */}
-          <FormInput
-            id="name"
-            type="text"
-            placeholder="Your Name (Optional)"
-            icon={UserIcon}
-            {...register("name")}
-            disabled={isSubmitting}
-          />
+          <div>
+            <FormInput
+              id="name"
+              type="text"
+              placeholder="Your Name (Optional)"
+              icon={UserIcon}
+              {...register("name")}
+              disabled={isSubmitting}
+            />
+          </div>
 
-          {/* Email */}
           <div>
             <FormInput
               id="email"
@@ -106,13 +109,13 @@ export default function BookingCallForm() {
                 },
               })}
               disabled={isSubmitting}
+              aria-invalid={errors.email ? "true" : "false"}
             />
             {errors.email && (
-              <p className="text-red-400 text-sm mt-2">{errors.email.message}</p>
+              <p className="text-red-400 text-sm mt-2" role="alert">{errors.email.message}</p>
             )}
           </div>
 
-          {/* Date + Time */}
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <FormInput
@@ -122,9 +125,10 @@ export default function BookingCallForm() {
                 className={errors.date ? "border-red-500 ring-1 ring-red-500" : ""}
                 {...register("date", { required: "Date is required" })}
                 disabled={isSubmitting}
+                aria-invalid={errors.date ? "true" : "false"}
               />
               {errors.date && (
-                <p className="text-red-400 text-sm mt-2">{errors.date.message}</p>
+                <p className="text-red-400 text-sm mt-2" role="alert">{errors.date.message}</p>
               )}
             </div>
 
@@ -136,17 +140,14 @@ export default function BookingCallForm() {
                 className={errors.time ? "border-red-500 ring-1 ring-red-500" : ""}
                 {...register("time", { required: "Time is required" })}
                 disabled={isSubmitting}
+                aria-invalid={errors.time ? "true" : "false"}
               />
               {errors.time && (
-                <p className="text-red-400 text-sm mt-2">{errors.time.message}</p>
+                <p className="text-red-400 text-sm mt-2" role="alert">{errors.time.message}</p>
               )}
             </div>
           </div>
 
-          {/* Submit Button */}
-          {/* <Button maintext="Book A Call" hovertext="Book A Call"  >
-               
-          </Button> */}
           <button
             type="submit"
             disabled={isSubmitting}
@@ -163,6 +164,6 @@ export default function BookingCallForm() {
           </button>
         </form>
       </div>
-    </div>
+    </section>
   );
 }

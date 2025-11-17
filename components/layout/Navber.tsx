@@ -4,16 +4,11 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import Button from "../sheared/Button";
 
-
-
 type NavItem = {
   name: string;
   href?: string;
   submenu?: { name: string; href: string }[];
 };
-
-
-
 
 const NAV_ITEMS: NavItem[] = [
   { name: "Home", href: "/" },
@@ -27,10 +22,6 @@ const NAV_ITEMS: NavItem[] = [
   { name: "Blog", href: "/blog" },
   { name: "About us", href: "/about" },
 ];
-
-
-
-
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -48,64 +39,66 @@ export default function Navbar() {
       </Link>
 
       {/* Mobile Menu */}
-      <div className="dropdown lg:hidden">
-        <button tabIndex={0} className="btn btn-ghost" aria-label="Open Menu">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-7 w-7"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
-          </svg>
-        </button>
-
-        <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-[#02121A] rounded-xl border border-white/10 w-56">
-          {NAV_ITEMS.map((item) =>
-            item.submenu ? (
-              <li key={item.name}>
-                <details open={item.submenu.some((sub) => isActive(sub.href))}>
-                  <summary className={item.submenu.some((sub) => isActive(sub.href)) ? "text-[#00FF85] font-bold" : ""}>
-                    {item.name}
-                  </summary>
-                  <ul className="p-2 bg-[#02121A] rounded-lg">
-                    {item.submenu.map((sub) => (
-                      <li key={sub.href}>
-                        <Link
-                          href={sub.href}
-                          className={isActive(sub.href) ? "text-[#00FF85] font-bold" : ""}
-                        >
-                          {sub.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </details>
-              </li>
-            ) : (
-              <li key={item.href}>
-                <Link href={item.href!} className={isActive(item.href) ? "text-[#00FF85] font-bold" : ""}>
-                  {item.name}
-                </Link>
-              </li>
-            )
-          )}
-
-          {/* CTA Button */}
-          <li>
-            <Link
-              href="/book-a-call"
-              className="bg-[#00FF85] text-black font-semibold rounded-full px-4 py-2 mt-2 block text-center hover:bg-[#00e676]"
+      <nav className="lg:hidden" aria-label="Mobile Navigation">
+        <div className="dropdown">
+          <button tabIndex={0} className="btn btn-ghost" aria-label="Open Menu">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-7 w-7"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              Book a call
-            </Link>
-          </li>
-        </ul>
-      </div>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+
+          <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-[#02121A] rounded-xl border border-white/10 w-56">
+            {NAV_ITEMS.map((item) =>
+              item.submenu ? (
+                <li key={item.name}>
+                  <details open={item.submenu.some((sub) => isActive(sub.href))}>
+                    <summary className={item.submenu.some((sub) => isActive(sub.href)) ? "text-[#00FF85] font-bold" : ""}>
+                      {item.name}
+                    </summary>
+                    <ul className="p-2 bg-[#02121A] rounded-lg">
+                      {item.submenu.map((sub) => (
+                        <li key={sub.href}>
+                          <Link
+                            href={sub.href}
+                            className={isActive(sub.href) ? "text-[#00FF85] font-bold" : ""}
+                          >
+                            {sub.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                </li>
+              ) : (
+                <li key={item.href}>
+                  <Link href={item.href!} className={isActive(item.href) ? "text-[#00FF85] font-bold" : ""}>
+                    {item.name}
+                  </Link>
+                </li>
+              )
+            )}
+
+            {/* CTA Button */}
+            <li>
+              <Link
+                href="/book-a-call"
+                className="bg-[#00FF85] text-black font-semibold rounded-full px-4 py-2 mt-2 block text-center hover:bg-[#00e676]"
+              >
+                Book a call
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
       {/* Desktop Menu */}
-      <nav className="hidden lg:flex items-center gap-10 text-[17px]">
+      <nav className="hidden lg:flex items-center gap-10 text-[17px]" aria-label="Primary Navigation">
         {NAV_ITEMS.map((item) =>
           item.submenu ? (
             <div key={item.name} className="relative group cursor-pointer">

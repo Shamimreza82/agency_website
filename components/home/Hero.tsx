@@ -1,25 +1,26 @@
-
 import WhatsAppButton from "./WhatsAppButton";
 
 
 const Hero = () => {
   return (
-    <div className="hero min-h-screen">
+    <section className="hero min-h-screen">
       <div className="hero-content flex-col lg:flex-row w-11/12 mx-auto">
-        <div>
-          <h1 className="text-6xl font-bold text-center">
+        <div className="text-center">
+          <h1 className="text-6xl font-bold">
             Designing experiences.
             <br />
             <span className="text-primary">Developing</span> results.
           </h1>
-          <p className="text-lg py-6 text-center lg:w-8/12 mx-auto text-accent">
+          <p className="text-lg py-6 lg:w-8/12 mx-auto text-accent">
             Get top-quality design and development services from our skilled
             professionals worldwide—delivered at a fair and competitive price.
           </p>
           <div className="lg:w-6/12 grid grid-cols-1 items-center mx-auto lg:flex gap-4">
           </div>
-          <div className="grid grid-cols-1 lg:flex items-center gap-2 mt-5 w-11/12 mx-auto justify-center">
-            <p className="text-center text-accent">4.6/5</p>
+          <figure className="grid grid-cols-1 lg:flex items-center gap-2 mt-5 w-11/12 mx-auto justify-center">
+            <figcaption className="text-center text-accent">
+              <span className="font-bold">4.6/5</span> based on 1500+ reviews
+            </figcaption>
             <div className="rating rating-sm rating-half mx-auto lg:mx-0">
               <input type="radio" name="rating-11" className="rating-hidden" />
               <input
@@ -84,12 +85,12 @@ const Hero = () => {
                 aria-label="5 star"
               />
             </div>
-            <p className="text-center">35+ Business, 1500+ Happy Clients</p>
-          </div>
+            <p className="text-center font-bold">35+ Business, 1500+ Happy Clients</p>
+          </figure>
         </div>
       </div>
        <WhatsAppButton />
-    </div>
+    </section>
   );
 };
 
