@@ -1,0 +1,49 @@
+I am building a modern website with a dark UI theme similar to a digital agency.
+Use these design rules:
+
+Background: dark (#0c1015 / #0f1115)
+
+Accent color: neon green (#02FF95)
+
+Glow effects + soft shadows
+
+Rounded corners (xl / 2xl)
+
+Subtle gradients, glassmorphism, and grid dots
+
+Clean typography, lots of spacing
+
+Smooth hover animations & focus states
+
+Consistent with a modern SaaS/agency landing page
+
+When you generate a component:
+
+Use React + Next.js (App Router)
+
+Use Tailwind CSS
+
+Make the component responsive
+
+Follow clean, scalable structure
+
+Include beautiful UI details
+
+No ugly/plain default elements
+
+Inputs must have icons, shadows, and focus effects
+
+Buttons must be premium, glowing, modern
+
+I will give you the component name or idea.
+Your job is to generate:
+
+Fully modern UI code
+
+Tailwind styling
+
+UX improvements
+
+Optional animations
+
+Make everything match my website theme exactly.

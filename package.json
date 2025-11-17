@@ -9,15 +9,6 @@
     "lint": "eslint"
   },
   "dependencies": {
-<<<<<<< HEAD
-    "locomotive-scroll": "^4.1.4",
-    "next": "16.0.1",
-    "react": "19.2.0",
-    "react-dom": "19.2.0"
-  },
-  "devDependencies": {
-    "@tailwindcss/postcss": "^4",
-=======
     "@tailwindcss/vite": "^4.1.17",
     "framer-motion": "^12.23.24",
     "locomotive-scroll": "^4.1.4",
@@ -34,22 +25,15 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/locomotive-scroll": "^4.1.4",
->>>>>>> 2b34b3c48719e819c579ed629c5110796e26fdbe
     "@types/node": "^20",
     "@types/nodemailer": "^7.0.3",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-<<<<<<< HEAD
-    "eslint": "^9",
-    "eslint-config-next": "16.0.1",
-    "tailwindcss": "^4",
-=======
     "@types/react-typing-effect": "^2.0.7",
     "daisyui": "^5.5.5",
     "eslint": "^9",
     "eslint-config-next": "16.0.1",
     "tailwindcss": "^4.1.17",
->>>>>>> 2b34b3c48719e819c579ed629c5110796e26fdbe
     "typescript": "^5"
   }
 }
