@@ -12,13 +12,14 @@ type NavItem = {
 
 const NAV_ITEMS: NavItem[] = [
   { name: "Home", href: "/" },
-  {
-    name: "Case Studies",
-    submenu: [
-      { name: "Case 1", href: "/case1" },
-      { name: "Case 2", href: "/case2" },
-    ],
-  },
+  // {
+  //   name: "Case Studies",
+  //   submenu: [
+  //     { name: "Case 1", href: "/case1" },
+  //     { name: "Case 2", href: "/case2" },
+  //   ],
+  // },
+  { name: "Projects", href: "/projects" },
   { name: "Blog", href: "/blog" },
   { name: "About us", href: "/about" },
 ];
@@ -53,7 +54,7 @@ export default function Navbar() {
             </svg>
           </button>
 
-          <ul className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-[#02121A] rounded-xl border border-white/10 w-56">
+          <ul className="menu menu-sm dropdown-content mt-3  p-4 shadow bg-[#02121A] rounded-xl border border-white/10 w-56">
             {NAV_ITEMS.map((item) =>
               item.submenu ? (
                 <li key={item.name}>
@@ -130,7 +131,7 @@ export default function Navbar() {
               key={item.href}
               href={item.href!}
               className={`transition ${
-                isActive(item.href) ? "text-[#00FF85] font-bold border-b-2 border-[#00FF85] pb-1" : "hover:text-[#00FF85]"
+                isActive(item.href) ? "text-[#00FF85] font-bold border-b-2 border-[#00FF85] pb-1 " : "hover:text-[#00FF85]"
               }`}
             >
               {item.name}

@@ -4,6 +4,10 @@ import { Metadata } from "next";
 import Hero from "@/components/home/Hero";
 import AboutUs from "@/components/AboutUs/AboutUs";
 import JsonLd from "@/components/sheared/JsonLd";
+import ReactTypingEffect from "react-typing-effect";
+import FAQ from "@/components/faq/FAQ";
+import HoverCards from "@/components/home/HoverCards";
+
 
 export const metadata: Metadata = {
   title: "Dream Team | Expert Web Design & Development Services",
@@ -105,8 +109,11 @@ export default function Home() {
       <JsonLd data={organizationSchema} />
       <JsonLd data={websiteSchema} />
       <JsonLd data={breadcrumbSchema} />
+
       <Hero />
       <AboutUs />
+      <HoverCards />
+      <FAQ />
     </>
   );
 }
