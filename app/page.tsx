@@ -8,6 +8,7 @@ import FAQ from "@/components/faq/FAQ";
 import HoverCards from "@/components/home/HoverCards";
 import ParallaxAutoplay from "@/components/home/component/ParallaxAutoplay";
 import ParallaxSection from "@/components/home/component/ParallaxSection";
+import ProcessPage from "@/components/pages/ProcessPage";
 
 
 export const metadata: Metadata = {
@@ -110,13 +111,12 @@ export default function Home() {
       <JsonLd data={organizationSchema} />
       <JsonLd data={websiteSchema} />
       <JsonLd data={breadcrumbSchema} />
-
       <Hero />
-      
       <ParallaxAutoplay />
       <ParallaxSection />
       <AboutUs />
       <HoverCards />
+      <ProcessPage/>
       <FAQ />
     </>
   );

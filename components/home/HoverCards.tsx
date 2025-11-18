@@ -5,30 +5,31 @@ import HoverCard from "./component/HoverCard";
 
 const cards = [
   {
-    title: "Designers",
+    title: "Businesses",
     description:
-      "Streamline your design process with AI-powered tools and high-quality assets that help you work faster and focus on what matters.",
+      "Grow your brand with conversion-focused websites, fast performance, and scalable digital solutions tailored to your business goals.",
     img: "/images/about-1.jpg",
   },
   {
-    title: "Marketers",
+    title: "Startups",
     description:
-      "Boost your campaigns with smart insights and AI-driven marketing tools.",
+      "Launch quickly with modern branding, landing pages, and MVP websites built to validate and scale your startup idea.",
     img: "/images/about-1.jpg",
   },
   {
-    title: "Filmmakers",
+    title: "E-commerce Brands",
     description:
-      "Create cinematic content faster with automated editing and effects.",
+      "Boost sales with optimized online stores, seamless checkout flows, and high-performing product pages.",
     img: "/images/about-1.jpg",
   },
   {
-    title: "Content creators",
+    title: "Agencies & Creators",
     description:
-      "Enhance your content with AI-powered assistance and creative tools.",
+      "Save time and elevate your online presence with ready-made design systems, custom websites, and automation.",
     img: "/images/about-1.jpg",
   },
 ];
+
 
 const HoverCards = () => {
   return (
@@ -48,12 +49,12 @@ const HoverCards = () => {
                   title={card.title}
                   description={card.description}
                   imageUrl={card.img}
-
                  />
               
             </div>
             
-            <div className="absolute inset-0 bg-amber-400 opacity-0 hover:opacity-100 transition-opacity duration-500 p-6 flex flex-col justify-end" style={{backgroundImage:  `url(${card.img})`, backgroundSize: 'cover', backgroundPosition: 'center', boxShadow: 'inset 0 0 0 1000px rgba(0, 0, 0, 0.5)'}}>
+            <div className="absolute inset-0 bg-amber-400 opacity-0 hover:opacity-100 transition-opacity duration-500 p-6 flex flex-col justify-end" 
+            style={{backgroundImage:  `url(${card.img})`, backgroundSize: 'cover', backgroundPosition: 'center', boxShadow: 'inset 0 0 0 1000px rgba(0, 0, 0, 0.5)'}}>
               <h3 className="text-xl font-bold mb-2">{card.title}</h3>
               <p className="mb-4">{card.description}</p>
               <button className="bg-white text-black px-4 py-2 rounded-full w-max">

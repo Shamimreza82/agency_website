@@ -103,6 +103,7 @@
 import Image from "next/image";
 import WhatsAppButton from "./WhatsAppButton";
 import { motion } from "framer-motion"; // optional for smooth animations
+import AnimatedTitle from "../sheared/AnimatedTitle";
 
 const Hero = () => {
 
@@ -130,9 +131,9 @@ const Hero = () => {
         >
           {/* You can replace this with your hero image */}
           <Image
-            src="/hero-image.png"
+            src="/images/hero.jpg"
             alt="Design & Development"
-            className="w-3/4 h-3/4 object-contain"
+            className=" object-contain drop-shadow-[0_0_5px_#02FF95] rounded-4xl"
             width={600}
             height={600}
             priority
@@ -146,9 +147,11 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1 }}
         >
+          
           <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
             Designing experiences.
             <br />
+           
             <span className="text-primary">Developing</span> results.
           </h1>
           <p className="text-lg py-6 lg:w-10/12 mx-auto lg:mx-0 text-accent">

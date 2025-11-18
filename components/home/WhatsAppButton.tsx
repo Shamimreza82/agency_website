@@ -50,7 +50,7 @@ export default function WhatsAppButton() {
       {/* Modern Floating Msg Bubble */}
       <div
         className={`
-          fixed bottom-32 right-6 max-w-[220px] px-4 py-3 rounded-2xl shadow-2xl 
+          fixed bottom-32 right-6 max-w-[220px] px-4 py-3 rounded-2xl shadow-2xl   
           bg-white border border-gray-200 text-gray-800 text-[15px] font-medium
           transition-all duration-500 ease-out
           ${show ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-3 scale-95 pointer-events-none"}

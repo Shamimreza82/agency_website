@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 import Mamun from "../../assests/Mamun2.png";
 import Reza from "../../assests/Reza.png";
-
+import AnimatedTitle from "../sheared/AnimatedTitle";
 const AboutUs: React.FC = () => {
   const teamMembers = [
     {
@@ -24,12 +24,11 @@ const AboutUs: React.FC = () => {
   ];
 
   return (
-    <section className="max-w-7xl mx-auto px-4 py-16">
+    <section className="max-w-7xl mx-auto px-4 py-16 ">
       <header className="text-center mb-30">
-        <p className="text-lg text-gray-400 uppercase mb-2">About Us</p>
-        <h1 className="text-4xl text-primary font-semibold mb-2">
-          Meet the Dream Team.
-        </h1>
+        <AnimatedTitle className="">
+          Meet the <span className="text-primary drop-shadow-lg font-sans">Dream Team</span>
+        </AnimatedTitle>
         <p className="text-lg text-accent lg:w-6/12 mx-auto">
           We craft beautiful designs and build powerful websites that grow businesses online.
         </p>
@@ -41,7 +40,7 @@ const AboutUs: React.FC = () => {
             key={member.name}
             className="card bg-gradient-to-b to-[#0B1926] from-transparent pointer-events-none shadow-sm relative overflow-visible w-96 mx-auto lg:mx-0 rounded-xl"
           >
-            <figure className="relative -mt-20">
+            <figure className="relative -mt-20 hover:scale-100 hover:duration-100">
               <Image
                 src={member.image}
                 alt={member.name}

@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import AnimatedTitle from "../sheared/AnimatedTitle";
 
 const faqs = [
   {
@@ -34,9 +35,12 @@ const FAQ = () => {
   return (
     <section className="lg:w-5xl mx-auto lg:my-20">
       <div className="container px-6 py-12 mx-auto">
-        <h1 className="lg:text-5xl text-2xl  font-semibold text-center text-primary ">
+        <AnimatedTitle className="">
+           <span className="lg:text-5xl text-2xl  font-semibold text-center text-primary ">
           Frequently Asked Questions
-        </h1>
+        </span>
+        </AnimatedTitle>
+
 
         <div className="mt-8 space-y-4 lg:mt-12">
           {faqs.map((faq, index) => (
