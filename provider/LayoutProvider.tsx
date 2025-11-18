@@ -1,3 +1,5 @@
+"use client";
+
 import Footer from '@/components/layout/Footer'
 import Navber from '@/components/layout/Navber/Navber'
 import { SessionProvider } from 'next-auth/react'

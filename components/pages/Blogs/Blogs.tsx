@@ -103,20 +103,20 @@ const sampleBlogs: Blog[] = [
 
 export default function Blogs() {
   return (
-    <section className="min-h-screen py-16 px-6 sm:px-12 lg:px-24 bg-gradient-to-b from-[#0c1015] to-[#0f1115] text-slate-200">
+    <section className="min-h-screen py-16 px-6 sm:px-12 lg:px-24 ">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 mb-10">
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold tracking-tight mb-2">Insights &amp; Stories</h2>
-            <p className="text-slate-400 max-w-xl">Latest thinking from our team — design, product, and engineering.</p>
+            <p className="0 max-w-xl">Latest thinking from our team — design, product, and engineering.</p>
           </div>
 
           {/* Search + Filters */}
           <div className="w-full lg:w-auto flex items-center gap-4">
             <div className="relative flex-1 lg:flex-none">
               <div className="absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none">
-                <Search className="w-4 h-4 text-slate-400" />
+                <Search className="w-4 h-4 0" />
               </div>
               <input
                 aria-label="Search blogs"
@@ -159,7 +159,7 @@ export default function Blogs() {
 
                   <div className="absolute left-4 bottom-4 rounded-full bg-[rgba(0,0,0,0.4)] px-3 py-1 backdrop-blur-sm text-xs font-medium border border-[rgba(255,255,255,0.04)] shadow-[0_6px_20px_rgba(0,0,0,0.6)]">
                     <span className="flex items-center gap-2">
-                      <Clock className="w-3 h-3 text-slate-300" />
+                      <Clock className="w-3 h-3 " />
                       <span>{blog.readMinutes} min</span>
                     </span>
                   </div>
@@ -167,7 +167,7 @@ export default function Blogs() {
 
                 <div className="p-5 flex flex-col gap-4">
                   <h3 className="text-lg font-semibold leading-snug">{blog.title}</h3>
-                  <p className="text-sm text-slate-400 line-clamp-3">{blog.excerpt}</p>
+                  <p className="text-sm  line-clamp-3">{blog.excerpt}</p>
 
                   <div className="flex items-center justify-between mt-2">
                     <div className="flex items-center gap-3">
@@ -175,16 +175,16 @@ export default function Blogs() {
                         <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#071018] to-[#071216] flex items-center justify-center text-sm font-medium border border-[rgba(255,255,255,0.03)] shadow-[0_6px_20px_rgba(2,255,149,0.03)]">{blog.author.split(" ")[0].slice(0,1)}</div>
                         <div className="text-xs">
                           <div className="font-medium">{blog.author}</div>
-                          <div className="text-slate-400">{blog.date}</div>
+                          <div >{blog.date}</div>
                         </div>
                       </div>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <div className="flex items-center gap-2 text-xs text-slate-400">
+                      <div className="flex items-center gap-2 text-xs 0">
                         {blog.tags.map((t) => (
                           <span key={t} className="inline-flex items-center gap-2 px-2 py-1 rounded-lg bg-[rgba(2,255,149,0.02)] border border-[rgba(2,255,149,0.04)]">
-                            <Tag className="w-3 h-3 text-[#02FF95]" />
+                            <Tag className="w-3 h-3 text-primary" />
                             <span>{t}</span>
                           </span>
                         ))}
@@ -219,7 +219,7 @@ export default function Blogs() {
                       <a href="#" className="text-sm font-medium hover:underline">
                         {b.title}
                       </a>
-                      <div className="text-xs text-slate-400 flex items-center gap-2 mt-1">
+                      <div className="text-xs 0 flex items-center gap-2 mt-1">
                         <User className="w-3 h-3" />
                         <span>{b.author}</span>
                       </div>
@@ -264,7 +264,7 @@ export default function Blogs() {
 
             <div className="mt-6 rounded-2xl p-5 bg-[rgba(255,255,255,0.02)] border border-[rgba(255,255,255,0.03)]">
               <h5 className="font-semibold mb-3">About our team</h5>
-              <p className="text-sm text-slate-400">We’re a small team crafting digital products — design, frontend, backend, and data.</p>
+              <p className="text-sm 0">We’re a small team crafting digital products — design, frontend, backend, and data.</p>
             </div>
           </aside>
         </div>

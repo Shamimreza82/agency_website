@@ -112,8 +112,8 @@ export default function Home() {
       <JsonLd data={websiteSchema} />
       <JsonLd data={breadcrumbSchema} />
       <Hero />
-      <ParallaxAutoplay />
-      <ParallaxSection />
+      {/* <ParallaxAutoplay />
+      <ParallaxSection /> */}
       <AboutUs />
       <HoverCards />
       <ProcessPage/>

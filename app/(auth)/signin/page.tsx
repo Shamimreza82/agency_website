@@ -1,20 +1,31 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import SocialLogin from "@/components/auth/SocialLogin";
 import Link from "next/link";
+import { toast } from "sonner";
 
 export default function SignInPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const router = useRouter();
+  const pathname = usePathname(); // 👈 Get the current route (e.g. /about, /dashboard)
+
+  const { data: session, status } = useSession();
+
+  if (status === "loading") return <p>Loading…</p>;
+
+  console.log(session?.user.email)
+
+
+
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -26,13 +37,15 @@ export default function SignInPage() {
     });
     setLoading(false);
     if (res?.ok) router.push("/dashboard");
-    else alert(res?.error ?? "Invalid credentials");
+    else toast.error(res?.error ?? "Invalid credentials");
   }
 
 
 
+
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
+    <div className="flex min-h-screen items-center justify-center ">
       <Card className="w-full max-w-md shadow-lg">
         <CardHeader>
           <CardTitle className="text-2xl text-center">Sign In</CardTitle>
@@ -72,7 +85,7 @@ export default function SignInPage() {
             <div className="border-t border-gray-300 w-1/3"></div>
           </div>
 
-           <SocialLogin provider="google" callbackUrl="/dashboard" className="bg-white mt-2" />
+           <SocialLogin provider="google"  className="bg-white mt-2" />
            <div>
             <p className="text-center text-sm text-gray-600 mt-4">
               Dot not have an account?{" "}

@@ -1,6 +1,6 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { signIn, useSession } from "next-auth/react";
 import { Button } from "@/components/ui/button";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -25,29 +25,35 @@ export default function SocialLogin({
 }: SocialLoginProps) {
   const pathname = usePathname(); // 👈 Get the current route (e.g. /about, /dashboard)
   const [loading, setLoading] = useState(false);
+  const { data: session } = useSession();
+
+  console.log("dffffffffffffffffffffffffffffff",session?.user.email)
 
   const handleLogin = async () => {
     setLoading(true);
 
-    // if(pathname === "/signin"){
-    //   return await signIn(provider, {
-    //   callbackUrl: '/dashboard',
-    // });
-    // }
+    if ( session?.user.email === "shamimrezaone@gmail.com" || session?.user.email === "almamuncool88@gmail.com") {
+      console.log("ssssssssssssssssssssssssssssssssss")
+      return await signIn(provider, {
+        callbackUrl: '/dashboard/admin',
+      });
+    } else {
+      const result = await signIn(provider, {
+        callbackUrl: '/dashboard/client',
+      });
+
+      if (result?.error) {
+        console.error("Login error:", result.error);
+        alert(`Failed to login with ${provider}`);
+      }
+
+      console.log(result);
+      setLoading(false);
+    }
 
     // 👇 If no callbackUrl passed, return to current page after login
-    const result = await signIn(provider, {
-      callbackUrl: callbackUrl || pathname,
-    });
 
 
-  if (result?.error) {
-    console.error("Login error:", result.error);
-    alert(`Failed to login with ${provider}`);
-  }
-
-    console.log(result);
-    setLoading(false);
   };
 
   return (

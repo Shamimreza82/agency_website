@@ -1,16 +1,16 @@
-import { NextAuthOptions } from 'next-auth';
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import NextAuth from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
 
+
+/* eslint-disable @typescript-eslint/no-explicit-any */
 
 import GoogleProvider from "next-auth/providers/google";
-
-
-
 import { sendEmail } from "@/utile/sendEmail";
 import { generatePassword } from "@/utile/generatePassword";
 import { prisma } from "@/lib/config/prisma";
+import NextAuth, { NextAuthOptions } from "next-auth";
+import { NextResponse } from "next/server";
+
+
+
 
 export const authOptions: NextAuthOptions = {
   providers: [
@@ -19,53 +19,42 @@ export const authOptions: NextAuthOptions = {
       clientId: process.env.GOOGLE_CLIENT_ID!,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
-    CredentialsProvider({
-      id: "credentials",
-      name: "Credentials",
-      credentials: {
-        email: { label: "Email", type: "email", placeholder: "you@domain.com" },
-        password: { label: "Password", type: "password" },
-      },
-      async authorize(credentials, req) {
-        if (!credentials?.email || !credentials?.password) return null;
+    // CredentialsProvider({
+    //   id: "credentials",
+    //   name: "Credentials",
+    //   credentials: {
+    //     email: { label: "Email", type: "email", placeholder: "you@domain.com" },
+    //     password: { label: "Password", type: "password" },
+    //   },
+    //   async authorize(credentials, req) {
+    //     if (!credentials?.email || !credentials?.password) return null;
 
-        // Find user by email
-        const user = await prisma.user.findFirst({
-          where: { email: credentials.email },
-        });
+    //     // Find user by email
+    //     const user = await prisma.user.findFirst({
+    //       where: { email: credentials.email },
+    //     });
 
-        // console.log(user)
-
-
-        if (!user) return null;
+    //     // console.log(user)
 
 
+    //     if (!user) return null;
 
-        // verify password (bcrypt)
-        // const isValid = await verifyPassword(credentials.password, user.password);
-        // if (!isValid) return null;
 
-        // Return a user object that will be stored in session token
-        return {
-          id: user.id,
-          email: user.email,
-          name: user.name ?? undefined,
-          phone: user.phone ?? undefined
-        };
-      },
-    }),
+
+    //     // verify password (bcrypt)
+    //     // const isValid = await verifyPassword(credentials.password, user.password);
+    //     // if (!isValid) return null;
+
+    //     // Return a user object that will be stored in session token
+    //     return {
+    //       id: user.id,
+    //       email: user.email,
+    //       name: user.name ?? undefined,
+    //       phone: user.phone ?? undefined
+    //     };
+    //   },
+    // }),
   ],
-
-  // If you want to persist sessions in DB (optional). If using PrismaAdapter,
-  // you must run migrations to add the required tables for NextAuth
-  // adapter: PrismaAdapter(prisma),
-
-  session: {
-    strategy: "jwt", // or "database" if adapter used
-    maxAge: 30 * 24 * 60 * 60, // 30 days in seconds
-  },
-
-
 
   callbacks: {
     async signIn({ user, account, profile }) {
@@ -76,9 +65,7 @@ export const authOptions: NextAuthOptions = {
         where: { email: profile?.email }
       })
 
-      if (isExiste) {
-        return true;
-      } else {
+      if(!isExiste) {
         const result = await prisma.user.create({
           data: {
             name: profile?.name || "",
@@ -88,7 +75,7 @@ export const authOptions: NextAuthOptions = {
           }
         });
 
-        
+
 
         const html = `
 <table border="0" cellpadding="0" cellspacing="0" width="100%" style="font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px;">
@@ -143,32 +130,45 @@ export const authOptions: NextAuthOptions = {
 
 
         if (profile?.email) {
-          await sendEmail(profile.email, "Welcome to Bistro Lumière! 🎉", html);
+          await sendEmail(profile.email, "Welcome to SM Agency! 🎉", html);
         }
+        
       }
+      
       return true;
     },
 
-    // async jwt({ token, user }) {
-    //   // On sign in, attach user id / email to token
-    //   if (user) {
-    //     token.id = (user as any).id ?? token.sub;
-    //     token.email = (user as any).email ?? token.email;
-    //   }
-    //   return token;
-    // },
+//     async jwt({ token, user }) {
+//       console.log("ddddddddddddddddddddddddddddddd",user, token)
+      
+//   if (user) {
+//     // first sign-in
 
-    // async session({ session, token }) {
-    //   // Expose additional properties to client
-    //   if (token && session.user) {
-    //     session.user.id = token.id as string;
-    //     session.user.email = token.email as string;
-    //   }
-    //   return session;
-    // },
+
+//     token.role = user.role ?? "USER"; // default role
+//   } else if (!token.role && token.email) {
+//     // subsequent calls, fetch role from DB
+//     const dbUser = await prisma.user.findUnique({
+//       where: { email: token.email },
+//     });
+//     token.role = dbUser?.role ?? "user";
+//   }
+//   return token;
+// },
+
+//     async session({ session, user }) {
+//     if (session.user) {
+//       session.user.role = user.role; // now role is available in session
+//     }
+//     return session;
+//   },
   },
 
+  session: {
+    strategy: "jwt", // or "database" if adapter used
+  },
 
+  
 
   pages: {
     signIn: "/auth/signin", // custom sign-in route (optional)
