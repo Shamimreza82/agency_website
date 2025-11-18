@@ -1,16 +1,17 @@
 import Footer from '@/components/layout/Footer'
-import Navber from '@/components/layout/Navber'
+import Navber from '@/components/layout/Navber/Navber'
+import { SessionProvider } from 'next-auth/react'
 import { ReactNode } from 'react'
 import { Toaster } from 'sonner'
 
 const LayoutProvider = ({ children }: { children: ReactNode }) => {
     return (
-        <div>
+        <SessionProvider>
             <Toaster />
             <Navber />
             {children}
             <Footer />
-        </div>
+        </SessionProvider>
     )
 }
 
