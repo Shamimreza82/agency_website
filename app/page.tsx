@@ -11,6 +11,9 @@ import ParallaxSection from "@/components/home/component/ParallaxSection";
 import ProcessPage from "@/components/pages/ProcessPage";
 
 
+
+
+
 export const metadata: Metadata = {
   title: "Dream Team | Expert Web Design & Development Services",
   description:
@@ -111,9 +114,9 @@ export default function Home() {
       <JsonLd data={organizationSchema} />
       <JsonLd data={websiteSchema} />
       <JsonLd data={breadcrumbSchema} />
-      <Hero />
       {/* <ParallaxAutoplay />
       <ParallaxSection /> */}
+      <Hero/>
       <AboutUs />
       <HoverCards />
       <ProcessPage/>

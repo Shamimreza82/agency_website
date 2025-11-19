@@ -1,8 +1,11 @@
+import { Dashboard } from "@/components/dashboard/dashboard"
 
 
 const ClientDashboard = () => {
   return (
-    <div>Client Dashboard</div>
+    <div>
+      <Dashboard/>
+    </div>
   )
 }
 

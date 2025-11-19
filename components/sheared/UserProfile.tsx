@@ -10,20 +10,13 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "../ui/button";
+import { Spinner } from "../ui/spinner";
 
-type TSessionUser = {
-  email?: string | null;
-  id: string;
-  image?: string | null;
-  name?: string | null;
-  loyaltyPoints?: number; // optional: restaurant-specific info
-  lastOrder?: string; // optional: last order info
-};
 
 export default function UserProfile() {
    const { data: session, status } = useSession();
 
-  if (status === "loading") return <p>Loading…</p>;
+  if (status === "loading") return <Spinner className="text-2xl h-8 w-8" />;
 
   console.log(session)
 
@@ -37,7 +30,7 @@ export default function UserProfile() {
     );
   }
 
-  const user: TSessionUser = session.user as TSessionUser;
+  const user = session.user 
 
   return (
     <DropdownMenu>
@@ -66,13 +59,13 @@ export default function UserProfile() {
       <DropdownMenuContent align="end" className="w-56 p-2  shadow-lg rounded-lg border">
         {/* Optional restaurant-specific info */}
         <div className="px-2 py-2 border-b mb-2">
-          <p className="text-gray-700 text-sm">Loyalty Points: <span className="font-semibold text-amber-600">{user.loyaltyPoints ?? 0}</span></p>
-          {user.lastOrder && (
-            <p className="text-gray-500 text-xs mt-1">Last Order: {user.lastOrder}</p>
+          <p className="text-gray-700 text-sm">Loyalty Points: <span className="font-semibold text-amber-600">0</span></p>
+          {user && (
+            <p className="text-gray-500 text-xs mt-1">Last Order: 0</p>
           )}
         </div>
         <DropdownMenuItem asChild className="hover:bg-amber-100 rounded-md">
-          <Link href="/dashboard">Profile</Link>
+          <Link href="/dashboard/client">Profile</Link>
         </DropdownMenuItem>
 
         <DropdownMenuItem asChild className="hover:bg-amber-100 rounded-md">

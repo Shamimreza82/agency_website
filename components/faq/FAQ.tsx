@@ -46,17 +46,17 @@ const FAQ = () => {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="p-4 bg-gray-100 rounded-lg dark:bg-gray-900"
+              className="p-4 rounded-lg bg-accent"
             >
               <button
                 className="flex items-center justify-between w-full"
                 onClick={() => toggleFAQ(index)}
               >
-                <h1 className="font-semibold text-gray-700 dark:text-white">
+                <h1 className="font-semibold ">
                   {faq.question}
                 </h1>
 
-                <span className="text-gray-400 bg-gray-200 rounded-full">
+                <span className=" rounded-full">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className={`w-6 h-6 transition-transform duration-300 transform ${
@@ -77,7 +77,7 @@ const FAQ = () => {
               </button>
 
               {activeIndex === index && (
-                <p className="mt-6 text-sm text-gray-500 dark:text-gray-300">
+                <p className="mt-6 text-sm ">
                   {faq.answer}
                 </p>
               )}

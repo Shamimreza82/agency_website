@@ -47,6 +47,9 @@ export default function RegisterPage() {
   });
 
   const onSubmit = async (values: RegisterForm) => {
+
+    console.log(values)
+
     try {
       const res = await fetch("/api/auth/register", {
         method: "POST",
@@ -55,7 +58,7 @@ export default function RegisterPage() {
       });
 
       if (res.ok) {
-        toast.success("Registration successful! Please sign in.");
+        toast.success("Account Register successfully");
         router.push("/signin");
       } else {
         const body = await res.json();

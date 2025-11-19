@@ -22,10 +22,13 @@ model User {
   name          String
   email         String    @unique
   password      String
-  role          Role      @default(USER)
+  role          Role      @default(CLIENT)
   phone         String?   // optional phone number
   profileImage  String?   // optional profile image URL
   isActive      Boolean   @default(true)
+  emailVerified Boolean   @default(false)
+  verifyToken   String?
+  verifyExpire  DateTime?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }

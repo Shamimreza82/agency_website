@@ -29,7 +29,7 @@ const AboutUs: React.FC = () => {
         <AnimatedTitle className="">
           Meet the <span className="text-primary drop-shadow-lg font-sans">Dream Team</span>
         </AnimatedTitle>
-        <p className="text-lg text-accent lg:w-6/12 mx-auto">
+        <p className="text-lg text-muted-foreground lg:w-6/12 mx-auto">
           We craft beautiful designs and build powerful websites that grow businesses online.
         </p>
       </header>
