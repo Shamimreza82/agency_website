@@ -1,44 +1,57 @@
-
 import { prisma } from "@/lib/config/prisma";
 import { NextResponse } from "next/server";
 import crypto from "crypto";
 import { sendEmail } from "@/utile/sendEmail";
 import { emailVarificationTemplate } from "@/utile/email_template/emailVarification";
 
-
-
 export async function POST(req: Request) {
   try {
     const body = await req.json();
-    const { email, password, name, phone } = body;
-
-
+    const { email, password, name, phone } = body as {
+      email: string;
+      password: string;
+      name?: string;
+      phone?: string;
+    };
 
     if (!email || !password) {
-      return NextResponse.json({ error: "Email and password are required" }, { status: 400 });
+      return NextResponse.json(
+        { error: "Email and password are required" },
+        { status: 400 }
+      );
     }
 
-    const existing = await prisma.user.findFirst({ where: { email } });
+    const existing = await prisma.user.findUnique({ where: { email } });
     if (existing) {
-      return NextResponse.json({ error: "User already exists" }, { status: 409 });
+      return NextResponse.json(
+        { error: "User already exists" },
+        { status: 409 }
+      );
     }
 
-   // generate token
+    // Generate token
     const verifyToken = crypto.randomBytes(32).toString("hex");
-    const verifyExpire = new Date(Date.now() + 1000 * 60 * 30); // expires in 30 minutes
+    const verifyExpire = new Date(Date.now() + 1000 * 60 * 30); // 30 minutes
 
     const user = await prisma.user.create({
-      data: { email, password, name, phone, verifyToken, verifyExpire },
+      data: {
+        email,
+        password,
+        name: name || "",
+        phone: phone || null,
+        verifyToken,
+        verifyExpire,
+      },
     });
 
-    const verifyUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/verify-email?token=${user?.verifyToken}`;
+    const verifyUrl = `${process.env.NEXT_PUBLIC_API_URL}/api/verify-email?token=${user.verifyToken}`;
 
+    await sendEmail(user.email, "Email Verification", emailVarificationTemplate(verifyUrl));
 
-    await sendEmail(user?.email, "Email Varification", emailVarificationTemplate(verifyUrl) )
-     return NextResponse.json(
-      { 
+    return NextResponse.json(
+      {
         success: true,
-        message: "Registration successful. Check your email to verify your account."   
+        message: "Registration successful. Check your email to verify your account.",
       },
       { status: 201 }
     );

@@ -27,7 +27,7 @@ model User {
   profileImage  String?   // optional profile image URL
   isActive      Boolean   @default(true)
   emailVerified Boolean   @default(false)
-  verifyToken   String?
+  verifyToken   String?   
   verifyExpire  DateTime?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt

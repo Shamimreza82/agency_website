@@ -2,12 +2,17 @@
   "name": "agency_website",
   "version": "0.1.0",
   "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "eslint"
-  },
+ "scripts": {
+  "dev": "npm run prisma:generate && next dev",
+  "build": "next build",
+  "start": "next start",
+  "lint": "eslint . --ext .ts,.tsx",
+  "prisma:generate": "prisma generate",
+  "prisma:migrate": "prisma migrate dev --name init",
+  "prisma:studio": "prisma studio",
+  "reset-db": "prisma migrate reset --force && npm run prisma:generate"
+},
+
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@prisma/client": "^6.19.0",

@@ -77,7 +77,7 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-gray-100">
+    <div className="flex min-h-screen items-center justify-center">
       <Card className="w-full max-w-md shadow-lg">
         <CardHeader>
           <CardTitle className="text-2xl text-center">Create Account</CardTitle>
@@ -153,7 +153,7 @@ export default function RegisterPage() {
             <div className="border-t border-gray-300 w-1/3"></div>
           </div>
 
-          <SocialLogin provider="google"  className="bg-white mt-2" />
+          <SocialLogin provider="google"  />
 
           <p className="text-center text-sm text-gray-600 mt-4">
             Already have an account?{" "}
