@@ -11,6 +11,7 @@ import SocialLogin from "@/components/auth/SocialLogin";
 // Icons
 import { MailIcon, LockIcon } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Spinner } from "@/components/ui/spinner";
 
 const FormInput = ({ icon: Icon, id, ...props }: any) => (
   <div className="relative">
@@ -40,7 +41,7 @@ export default function SignInPage() {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  if (status === "loading") return <p className="text-center text-white">Loading…</p>;
+  if (status === "loading") return <p className="text-center text-white"><Spinner/></p>;
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
