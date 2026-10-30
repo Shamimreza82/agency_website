@@ -24,11 +24,6 @@ const NAV_ITEMS: TNavItem[] = [
         des: "UI/UX, brand identities, wireframes, and high-fidelity interactive prototypes.",
         href: "/services/design",
       },
-      {
-        name: "Development Services",
-        des: "Scalable full-stack development, APIs, dashboards, SaaS apps, and enterprise-grade systems.",
-        href: "/services/development",
-      },
     ],
   },
   { name: "About", href: "/about" },
