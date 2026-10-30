@@ -26,7 +26,7 @@ html {
 };
 
 body {
-  @apply bg-gradient-to-r from-[#0B1926] to-[#020606];
+  @apply bg-brand-bg text-foreground;
   position: relative; /* REQUIRED */
   overflow-x: hidden; /* optional */
 }
@@ -130,12 +130,12 @@ body::before {
   --chart-3: oklch(0.55 0.22 280);
   --chart-4: oklch(0.7 0.15 50);
   --chart-5: oklch(0.58 0.2 320);
-  /* Brand tokens — single accent #02FF95 mint on a dark theme */
-  --brand-bg: oklch(0.08 0 0);
-  --brand-surface: oklch(0.11 0 0);
-  --brand-accent: #02FF95;
-  --brand-accent-fg: #000000;
-  --brand-muted-fg: oklch(0.65 0 0);
+  /* Brand tokens — violet accent on warm ink, distinct from green/terracotta defaults */
+  --brand-bg: oklch(0.085 0 0);
+  --brand-surface: oklch(0.115 0 0);
+  --brand-accent: #7C3AED;
+  --brand-accent-fg: #FFFFFF;
+  --brand-muted-fg: oklch(0.6 0 0);
   --brand-border: oklch(0.18 0 0);
   --radius: 0.625rem;
   --sidebar: oklch(0.1 0 0);
@@ -173,12 +173,12 @@ body::before {
   --chart-3: oklch(0.55 0.22 280);
   --chart-4: oklch(0.7 0.15 50);
   --chart-5: oklch(0.58 0.2 320);
-  /* Brand tokens — single accent #02FF95 mint on a dark theme */
-  --brand-bg: oklch(0.08 0 0);
-  --brand-surface: oklch(0.11 0 0);
-  --brand-accent: #02FF95;
-  --brand-accent-fg: #000000;
-  --brand-muted-fg: oklch(0.65 0 0);
+  /* Brand tokens — violet accent on warm ink, distinct from green/terracotta defaults */
+  --brand-bg: oklch(0.085 0 0);
+  --brand-surface: oklch(0.115 0 0);
+  --brand-accent: #7C3AED;
+  --brand-accent-fg: #FFFFFF;
+  --brand-muted-fg: oklch(0.6 0 0);
   --brand-border: oklch(0.18 0 0);
   --sidebar: oklch(0.1 0 0);
   --sidebar-foreground: oklch(0.95 0 0);

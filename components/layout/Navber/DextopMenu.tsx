@@ -36,7 +36,7 @@ export default function DesktopMenu({
     href && (pathname === href || (href !== "/" && pathname.startsWith(href)));
 
   return (
-    <nav className="hidden lg:flex items-center gap-8 text-sm font-medium">
+    <nav className="hidden lg:flex items-center gap-6 text-sm font-medium">
       {NAV_ITEMS.map((item) => {
         if (item.submenu) {
           return (
