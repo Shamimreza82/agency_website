@@ -1,6 +1,6 @@
 # agency_website
 
-Next.js 16 App Router, React 19, TypeScript (strict), Tailwind CSS v4, shadcn/ui (rsc: true), Prisma (PostgreSQL), nodemailer (Gmail SMTP). Deploy target: Vercel. No auth (login/signup removed), no test runner, no CI, no pre-commit configured.
+Next.js 16 App Router, React 19, TypeScript (strict), Tailwind CSS v4, shadcn/ui (rsc: true), Prisma (PostgreSQL, optional), nodemailer (Gmail SMTP). Deploy target: Vercel. No auth (login/signup removed), no test runner, no CI, no pre-commit configured.
 
 ## Commands
 
@@ -22,14 +22,14 @@ There is no `test` script and no test framework installed. Do not invent test co
 
 Additional vars read by code but not in `.env` (set locally as needed): `NODE_MAILER_EMAIL`, `NODE_MAILER_PASS`. Without the mailer vars, nodemailer sends will fail.
 
-Local PostgreSQL is required for anything that queries the DB (book-a-call). `prisma generate` itself does not need a DB.
+The database is optional. `prisma` (from `@/lib/config/prisma`) is `undefined` when `DATABASE_URL` is not set, and no page or API route currently requires it — `book-a-call` sends email via nodemailer only. `prisma generate` does not need a DB. Only set `DATABASE_URL`/`DIRECT_URL` and run migrations if you add DB queries later.
 
 ## Database / Prisma
 
 - Schema: `prisma/schema.prisma` — models: `User`, enum `Role` (ADMIN, USER, CLIENT). No NextAuth/Prisma adapter; the `prisma` client singleton is used directly.
-- Prisma client singleton with dev hot-reload guard: `lib/config/prisma.ts` — always import `prisma` from `@/lib/config/prisma`; do not instantiate `new PrismaClient()` elsewhere.
+- Prisma client singleton: `lib/config/prisma.ts` — always import `prisma` from `@/lib/config/prisma`; do not instantiate `new PrismaClient()` elsewhere. `prisma` is `undefined` when `DATABASE_URL` is unset; guard before use.
 - `prisma.config.ts` reads `DIRECT_URL` via dotenv and uses the classic engine.
-- After editing `prisma/schema.prisma`, run `npm run prisma:generate` before `npm run dev`.
+- After editing `prisma/schema.prisma`, run `npm run prisma:generate`.
 
 ## App structure
 
