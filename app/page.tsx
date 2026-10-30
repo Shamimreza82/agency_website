@@ -2,6 +2,7 @@
 
 import { Metadata } from "next";
 import Hero from "@/components/home/Hero";
+import ProofRow from "@/components/home/ProofRow";
 import AboutUs from "@/components/AboutUs/AboutUs";
 import JsonLd from "@/components/sheared/JsonLd";
 import FAQ from "@/components/faq/FAQ";
@@ -116,10 +117,11 @@ export default function Home() {
       <JsonLd data={breadcrumbSchema} />
       {/* <ParallaxAutoplay />
       <ParallaxSection /> */}
-      <Hero/>
+      <Hero />
+      <ProofRow />
       <AboutUs />
       <HoverCards />
-      <ProcessPage/>
+      <ProcessPage />
       <FAQ />
     </>
   );

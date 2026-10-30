@@ -44,27 +44,20 @@ body::before {
   z-index: 0;
 }
 
-@keyframes bounceArrow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+@media (prefers-reduced-motion: reduce) {
+  .animate-bounceArrow,
+  .animate-spark {
+    animation: none !important;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
-
-@keyframes spark {
-  0% { opacity: 0; transform: translateY(0) scaleX(0); }
-  50% { opacity: 1; transform: translateY(2px) scaleX(2); }
-  100% { opacity: 0; transform: translateY(0) scaleX(0); }
-}
-
-.animate-bounceArrow {
-  animation: bounceArrow 1s infinite;
-}
-
-.animate-spark {
-  animation: spark 1s infinite;
-  animation-delay: 0.5s; /* sync with bounce */
-}
-
-
 
 @theme inline {
   --radius-sm: calc(var(--radius) - 4px);
@@ -94,6 +87,12 @@ body::before {
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-surface: var(--brand-surface);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accent-fg: var(--brand-accent-fg);
+  --color-brand-muted-fg: var(--brand-muted-fg);
+  --color-brand-border: var(--brand-border);
   --color-sidebar: var(--sidebar);
   --color-sidebar-foreground: var(--sidebar-foreground);
   --color-sidebar-primary: var(--sidebar-primary);
@@ -131,6 +130,13 @@ body::before {
   --chart-3: oklch(0.55 0.22 280);
   --chart-4: oklch(0.7 0.15 50);
   --chart-5: oklch(0.58 0.2 320);
+  /* Brand tokens — single accent #02FF95 mint on a dark theme */
+  --brand-bg: oklch(0.08 0 0);
+  --brand-surface: oklch(0.11 0 0);
+  --brand-accent: #02FF95;
+  --brand-accent-fg: #000000;
+  --brand-muted-fg: oklch(0.65 0 0);
+  --brand-border: oklch(0.18 0 0);
   --radius: 0.625rem;
   --sidebar: oklch(0.1 0 0);
   --sidebar-foreground: oklch(0.95 0 0);
@@ -167,6 +173,13 @@ body::before {
   --chart-3: oklch(0.55 0.22 280);
   --chart-4: oklch(0.7 0.15 50);
   --chart-5: oklch(0.58 0.2 320);
+  /* Brand tokens — single accent #02FF95 mint on a dark theme */
+  --brand-bg: oklch(0.08 0 0);
+  --brand-surface: oklch(0.11 0 0);
+  --brand-accent: #02FF95;
+  --brand-accent-fg: #000000;
+  --brand-muted-fg: oklch(0.65 0 0);
+  --brand-border: oklch(0.18 0 0);
   --sidebar: oklch(0.1 0 0);
   --sidebar-foreground: oklch(0.95 0 0);
   --sidebar-primary: oklch(0.5 0.22 259);
@@ -180,6 +193,7 @@ body::before {
 @theme inline {
   --font-sans: 'Geist', 'Geist Fallback';
   --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --font-display: 'Syne', 'Syne Fallback';
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -204,6 +218,12 @@ body::before {
   --color-chart-3: var(--chart-3);
   --color-chart-4: var(--chart-4);
   --color-chart-5: var(--chart-5);
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-surface: var(--brand-surface);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-accent-fg: var(--brand-accent-fg);
+  --color-brand-muted-fg: var(--brand-muted-fg);
+  --color-brand-border: var(--brand-border);
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
@@ -224,5 +244,8 @@ body::before {
   }
   body {
     @apply bg-background text-foreground;
+  }
+  .font-display {
+    font-family: var(--font-display);
   }
 } 

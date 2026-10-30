@@ -3,8 +3,8 @@ import { Geist, Geist_Mono, Syne } from "next/font/google";
 import "./globals.css";
 import LayoutProvider from "@/provider/LayoutProvider";
 
-const gSans = Syne({
-  variable: "--font-geist-sans",
+const displayFont = Syne({
+  variable: "--font-display",
   subsets: ["latin"],
 });
 
@@ -33,7 +33,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} ${gSans.variable} antialiased`}>
+        className={`${geistSans.variable} ${geistMono.variable} ${displayFont.variable} antialiased`}>
         <LayoutProvider>{children}</LayoutProvider>
       </body>
     </html>

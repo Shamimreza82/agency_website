@@ -1,90 +1,76 @@
-"use client"
+"use client";
 
 import Image from "next/image";
+import Link from "next/link";
+import { motion } from "framer-motion";
 import WhatsAppButton from "./WhatsAppButton";
-import { motion } from "framer-motion"; // optional for smooth animations
-import Button from "../sheared/Button";
 
+const isBrowser = typeof window !== "undefined";
+const prefersReduced = isBrowser && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-
-const Hero = () => {
-
-  const rating = (
-  <div className="rating rating-sm rating-half">
-    {Array.from({ length: 5 }).map((_, i) => (
-      <input
-        key={i}
-        type="radio"
-        name="rating-11"
-        className={`mask mask-star-2 mask-half-${i % 2 === 0 ? "1" : "2"} bg-[#FDB022]`}
-        aria-label={`${(i + 1) * 1} star`}
-        defaultChecked={i === 5} // 4.5 stars default
-      />
-    ))}
-  </div>
-);
-  return (
-    <section className="hero min-h-screen bg-gray-900 flex items-center">
-      <div className="hero-content flex-col lg:flex-row-reverse w-11/12 mx-auto gap-10 lg:gap-16">
-        {/* Hero Image / Placeholder */}
-        <motion.div
-          className="w-full lg:w-1/2 bg-gradient-to-br from-primary/20 to-primary/10 rounded-3xl h-80 lg:h-[32rem] flex items-center justify-center shadow-lg"
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          {/* You can replace this with your hero image */}
-          <Image
-            src="/images/hero.jpg"
-            alt="Design & Development"
-            className=" object-contain drop-shadow-[0_0_5px_#02FF95] rounded-4xl"
-            width={600}
-            height={600}
-            priority
-          />
-        </motion.div>
-
-        {/* Hero Text */}
-        <motion.div
-          className="text-center lg:text-left lg:w-1/2"
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1 }}
-        >
-          
-          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
-            Designing experiences.
-            <br />
-           
-            <span className="text-primary">Developing</span> results.
-          </h1>
-          <p className="text-lg py-6 lg:w-10/12 mx-auto lg:mx-0 text-muted-foreground ">
-            Get top-quality design and development services from skilled
-            professionals worldwide—delivered at a fair and competitive price.
-          </p>
-
-          <div>
-            <WhatsAppButton />
-            <Button maintext="Explore Our Services" hovertext="Explore Our Services"/>
-          </div>
-
-          <figure className="mt-10 items-center gap-4 justify-center lg:justify-start space-y-3">
-            <figcaption className=" text-center sm:text-left font-semibold items-center">
-
-              <span className="font-bold text-xl text-muted-foreground">4.6/5 </span>{rating}
-            </figcaption>
-
-            <p className="font-bold text-muted-foreground  text-center sm:text-left">
-              Based on 1500+ reviews
-              <br />
-              35+ Businesses, 1500+ Happy Clients
-            </p>
-          </figure>
-        </motion.div>
-      </div>
-    </section>
-  );
+const fadeUp = {
+  initial: prefersReduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.6 } as const,
 };
 
-export default Hero;
+export default function Hero() {
+  return (
+    <section className="relative bg-brand-bg text-white min-h-[85vh] flex items-center">
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <motion.div
+          {...fadeUp}
+          className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center"
+        >
+          {/* Text column */}
+          <div className="lg:pr-16">
+            <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] mb-6 text-balance">
+              Websites and web applications built to grow your business.
+            </h1>
+            <p className="text-brand-muted-fg text-lg md:text-xl leading-relaxed mb-10 max-w-lg">
+              We design websites and build web applications — from landing pages
+              to full-stack platforms — then launch them in weeks, not months.
+            </p>
 
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <Link href="/book-a-call">
+                <button className="w-full sm:w-auto flex items-center justify-center bg-brand-accent text-brand-accent-fg font-semibold px-8 py-4 rounded-xl text-base transition hover:opacity-90 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-accent/50">
+                  Start a project
+                </button>
+              </Link>
+              <Link href="/projects">
+                <button className="w-full sm:w-auto flex items-center justify-center border border-brand-border bg-transparent text-white font-semibold px-8 py-4 rounded-xl text-base transition hover:bg-white/10 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-border/50">
+                  See our work
+                </button>
+              </Link>
+            </div>
+
+            <p className="text-brand-muted-fg text-sm leading-relaxed max-w-md">
+              15+ websites and web apps shipped for ambitious teams.
+            </p>
+          </div>
+
+          {/* Image column (desktop only) */}
+          <div className="hidden lg:block">
+            <motion.div
+              {...fadeUp}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="relative h-[560px] rounded-3xl overflow-hidden border border-brand-border/50 bg-brand-surface shadow-2xl"
+            >
+              <Image
+                src="/images/hero.jpg"
+                alt="Agency work preview"
+                className="w-full h-full object-cover"
+                width={800}
+                height={600}
+                priority
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-brand-bg/90 via-transparent to-transparent" />
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+      <WhatsAppButton />
+    </section>
+  );
+}
