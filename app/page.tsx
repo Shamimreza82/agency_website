@@ -1,48 +1,32 @@
-
-
 import { Metadata } from "next";
-import Hero from "@/components/home/Hero";
-import ProofRow from "@/components/home/ProofRow";
-import AboutUs from "@/components/AboutUs/AboutUs";
+import LandingPage from "@/components/landing/LandingPage";
 import JsonLd from "@/components/sheared/JsonLd";
-import FAQ from "@/components/faq/FAQ";
-import HoverCards from "@/components/home/HoverCards";
-import ParallaxAutoplay from "@/components/home/component/ParallaxAutoplay";
-import ParallaxSection from "@/components/home/component/ParallaxSection";
-import ProcessPage from "@/components/pages/ProcessPage";
-
-
-
-
 
 export const metadata: Metadata = {
-  title: "Dream Team | Expert Web Design & Development Services",
+  title: "SM Agency | Web Scraping, Automation & SaaS Products",
   description:
-    "Dream Team is a top-rated digital agency offering professional web design, development, and UI/UX services. We build powerful websites that drive business growth. Contact us for a free discovery call.",
+    "SM Agency - Expert web scraping, automation, and SaaS development services. Transform your business with our data solutions and custom development.",
   keywords: [
-    "web design",
+    "web scraping",
+    "automation",
+    "saas development",
+    "lead generation",
+    "data pipelines",
+    "AI agents",
     "web development",
-    "UI/UX design",
-    "digital agency",
-    "React development",
-    "Next.js development",
-    "front-end development",
-    "full-stack development",
-    "website design",
-    "website development",
   ],
   openGraph: {
-    title: "Dream Team | Expert Web Design & Development Services",
+    title: "SM Agency | Web Scraping, Automation & SaaS Products",
     description:
-      "We craft beautiful designs and build powerful websites that grow businesses online. Partner with our expert team of developers and designers.",
+      "We turn messy web data into clean pipelines, and clean pipelines into products your customers pay for.",
     url: "https://www.dreamteam.agency",
-    siteName: "Dream Team",
+    siteName: "SM Agency",
     images: [
       {
-        url: "https://www.dreamteam.agency/images/og-image.jpg", // To be replaced with an actual image
+        url: "https://images.bigibyte.com/projects/project-bigibyte-brand-banner.webp",
         width: 1200,
         height: 630,
-        alt: "Dream Team - Web Design and Development Agency",
+        alt: "SM Agency logo banner with the tagline Big Ideas, Byte Solutions",
       },
     ],
     locale: "en_US",
@@ -50,11 +34,10 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Dream Team | Expert Web Design & Development Services",
+    title: "SM Agency | Web Scraping, Automation & SaaS Products",
     description:
-      "Get top-quality design and development services from our skilled professionals. We deliver results at a fair and competitive price.",
-    creator: "@dreamteam", // To be replaced with actual Twitter handle
-    images: ["https://www.dreamteam.agency/images/twitter-image.jpg"], // To be replaced with an actual image
+      "Expert web scraping, automation, and SaaS development services.",
+    images: ["https://images.bigibyte.com/projects/project-bigibyte-brand-banner.webp"],
   },
   alternates: {
     canonical: "https://www.dreamteam.agency",
@@ -64,25 +47,26 @@ export const metadata: Metadata = {
 const organizationSchema = {
   "@context": "https://schema.org",
   "@type": "Organization",
-  name: "Dream Team",
+  name: "SM Agency",
   url: "https://www.dreamteam.agency",
-  logo: "https://www.dreamteam.agency/images/logo.png", // To be replaced with actual logo
+  logo: "https://images.bigibyte.com/projects/project-bigibyte-brand-banner.webp",
   contactPoint: {
     "@type": "ContactPoint",
-    telephone: "+1-555-555-5555", // To be replaced
+    telephone: "+1-555-555-5555",
     contactType: "Customer Service",
   },
   sameAs: [
-    "https://www.facebook.com/dreamteam", // To be replaced
-    "https://twitter.com/dreamteam", // To be replaced
-    "https://www.linkedin.com/company/dreamteam", // To be replaced
+    "https://www.facebook.com/bigibyte",
+    "https://twitter.com/bigibyte",
+    "https://instagram.com/thebigibyte",
+    "https://linkedin.com/company/bigibyte",
   ],
 };
 
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Dream Team",
+  name: "SM Agency",
   url: "https://www.dreamteam.agency",
   potentialAction: {
     "@type": "SearchAction",
@@ -104,25 +88,13 @@ const breadcrumbSchema = {
   ],
 };
 
-
-// const LocoWrapper = dynamic(() => import("@/components/LocoWrapper"), {
-//   ssr: false,
-// });
-
 export default function Home() {
   return (
     <>
       <JsonLd data={organizationSchema} />
       <JsonLd data={websiteSchema} />
       <JsonLd data={breadcrumbSchema} />
-      {/* <ParallaxAutoplay />
-      <ParallaxSection /> */}
-      <Hero />
-      <ProofRow />
-      <AboutUs />
-      <HoverCards />
-      <ProcessPage />
-      <FAQ />
+      <LandingPage />
     </>
   );
 }
