@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 const CHECKS = [
   "Senior engineers only",
@@ -53,325 +54,148 @@ const HERO_SHOTS = [
   "https://images.bigibyte.com/cdn-cgi/image/width=1400,quality=80,format=auto/projects/project-agent-lead-workflow-vertical.webp",
 ];
 
-const SHOT_STYLE = {
-  height: "clamp(240px, 34vw, 460px)",
-  aspectRatio: "16 / 10",
-  borderRadius: "20px",
-  overflow: "hidden",
-  background: "rgb(238, 240, 242)",
-} as React.CSSProperties;
-
-const IMG_STYLE = {
-  display: "block",
-  width: "100%",
-  height: "100%",
-  objectFit: "cover",
-  transform: "scale(1)",
-  transition: "transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1)",
-} as React.CSSProperties;
-
 export default function HeroSection() {
   return (
     <section
       id="top"
-      style={{
-        position: "relative",
-        marginTop: "-80px",
-        padding: "166px 20px 40px",
-        textAlign: "center",
-      }}
+      className="relative -mt-20 px-5 pt-32 pb-20 bg-white text-slate-900 overflow-hidden"
     >
-      <div
-        style={{
-          position: "absolute",
-          inset: "0",
-          pointerEvents: "none",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            left: "-12%",
-            top: "-18%",
-            width: "52%",
-            height: "78%",
-            borderRadius: "50%",
-            background: "radial-gradient(closest-side, rgba(168, 182, 202, 0.55), rgba(168, 182, 202, 0.18) 55%, transparent)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            right: "-10%",
-            top: "-24%",
-            width: "62%",
-            height: "86%",
-            borderRadius: "50%",
-            background: "radial-gradient(closest-side, rgba(24, 32, 43, 0.22), rgba(60, 74, 94, 0.1) 55%, transparent)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            left: "30%",
-            top: "-30%",
-            width: "40%",
-            height: "55%",
-            borderRadius: "50%",
-            background: "radial-gradient(closest-side, rgba(206, 214, 226, 0.6), transparent)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: "0",
-            background: "linear-gradient(rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 45%, rgb(255, 255, 255) 92%)",
-          }}
-        />
+      {/* Grid Background - The "Precision" Device */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0 1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0 1px,transparent_1px)] bg-[size:64px_64px] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-40" />
       </div>
 
-      <div
-        style={{
-          position: "relative",
-          maxWidth: "860px",
-          margin: "0 auto",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          gap: "22px",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "8px",
-            fontSize: "13px",
-            color: "rgb(91, 99, 110)",
-            background: "rgb(255, 255, 255)",
-            border: "1px solid rgb(230, 232, 235)",
-            padding: "6px 14px 6px 8px",
-            borderRadius: "999px",
-          }}
-        >
-          <span
-            style={{
-              background: "rgb(240, 241, 243)",
-              color: "rgb(24, 32, 43)",
-              fontWeight: 500,
-              padding: "3px 9px",
-              borderRadius: "999px",
-              fontSize: "12px",
-            }}
-          >
-            New
-          </span>
-          Booking Q4 2026 projects
-        </div>
-
-        <h1
-          style={{
-            margin: 0,
-            fontWeight: 500,
-            fontSize: "clamp(40px, 5.6vw, 72px)",
-            lineHeight: 1.04,
-            letterSpacing: "-0.035em",
-            color: "rgb(24, 32, 43)",
-          }}
-        >
-          Your data partner for scraping, automation &amp; SaaS products.
-        </h1>
-
-        <p
-          style={{
-            margin: 0,
-            fontSize: "18px",
-            lineHeight: 1.55,
-            color: "rgb(91, 99, 110)",
-            maxWidth: "600px",
-          }}
-        >
-          We turn messy web data into clean pipelines, and clean pipelines into
-          products your customers pay for.
-        </p>
-
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "10px 20px",
-            fontSize: "14px",
-            color: "rgb(53, 60, 71)",
-          }}
-        >
-          {CHECKS.map((check) => (
-            <span
-              key={check}
-              style={{ display: "flex", alignItems: "center", gap: "7px" }}
+      <div className="relative max-w-6xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          {/* Left Column: The Blueprint */}
+          <div className="lg:col-span-7 flex flex-col gap-8 text-left">
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex items-center gap-3 text-xs font-medium text-slate-500"
             >
-              <span
-                style={{
-                  width: "18px",
-                  height: "18px",
-                  borderRadius: "50%",
-                  background: "rgb(24, 32, 43)",
-                  color: "rgb(255, 255, 255)",
-                  display: "grid",
-                  placeItems: "center",
-                  fontSize: "11px",
-                  fontWeight: 700,
-                }}
+              <span className="w-2 h-2 rounded-full bg-brand-accent animate-pulse" />
+              Booking Q4 2026 projects
+            </motion.div>
+
+            <motion.h1 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+              className="text-5xl md:text-7xl font-medium leading-[1.1] tracking-tighter text-slate-900"
+            >
+              Your data partner for scraping, automation &amp; SaaS products.
+            </motion.h1>
+
+            <motion.p 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.1, ease: [0.23, 1, 0.32, 1] }}
+              className="text-lg md:text-xl leading-relaxed text-slate-600 max-w-xl"
+            >
+              We turn messy web data into clean pipelines, and clean pipelines into
+              products your customers pay for.
+            </motion.p>
+
+            <motion.div 
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: [0.23, 1, 0.32, 1] }}
+              className="flex flex-col sm:flex-row gap-4"
+            >
+              <a
+                href="https://cal.com/shamim-reza-pq9t65"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-slate-900 text-white px-8 py-4 rounded-lg text-sm font-medium transition-all duration-150 active:scale-95 hover:bg-slate-800 inline-flex items-center justify-center"
               >
-                ✓
-              </span>
-              {check}
-            </span>
-          ))}
-        </div>
+                Book a free call
+              </a>
+              <Link
+                href="#work"
+                className="bg-white border border-slate-200 px-8 py-4 rounded-lg text-sm font-medium text-slate-900 transition-all duration-150 active:scale-95 hover:bg-slate-50 inline-flex items-center justify-center"
+              >
+                See our work
+              </Link>
+            </motion.div>
 
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "10px",
-            marginTop: "6px",
-          }}
-        >
-          <a
-            href="https://cal.com/shamim-reza-pq9t65"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              background: "rgb(24, 32, 43)",
-              color: "rgb(255, 255, 255)",
-              padding: "14px 24px",
-              borderRadius: "999px",
-              fontSize: "15px",
-              fontWeight: 500,
-              display: "flex",
-              alignItems: "center",
-              gap: "10px",
-              textDecoration: "none",
-            }}
-          >
-            Book a free call
-            <span
-              style={{
-                width: "22px",
-                height: "22px",
-                borderRadius: "50%",
-                background: "rgb(255, 255, 255)",
-                color: "rgb(24, 32, 43)",
-                display: "grid",
-                placeItems: "center",
-                fontSize: "12px",
-              }}
+            {/* Trust Bar */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="flex items-center gap-4 pt-8 border-t border-slate-100"
             >
-              ↗
-            </span>
-          </a>
-          <Link
-            href="#work"
-            style={{
-              background: "rgb(255, 255, 255)",
-              border: "1px solid rgb(221, 224, 228)",
-              padding: "14px 24px",
-              borderRadius: "999px",
-              fontSize: "15px",
-              fontWeight: 500,
-              color: "rgb(24, 32, 43)",
-              textDecoration: "none",
-            }}
-          >
-            See our work
-          </Link>
+              <div className="flex -space-x-3">
+                {AVATARS.map((src, i) => (
+                  <div
+                    key={i}
+                    className="relative w-8 h-8 border-2 border-white rounded-full bg-slate-100 overflow-hidden"
+                    style={{ backgroundImage: `url(${src})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
+                  />
+                ))}
+              </div >
+              <p className="text-sm text-slate-500">
+                <span className="text-slate-900 font-medium">Join founders</span> who automated their data.
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Right Column: The Evidence */}
+          <div className="lg:col-span-5 relative">
+            <motion.div 
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: [0.23, 1, 0.32, 1] }}
+              className="relative z-10"
+            >
+              {/* Technical "Blueprint" Frame */}
+              <div className="p-2 bg-slate-100 border border-slate-200 rounded-2xl shadow-2xl">
+                <div className="bg-white rounded-xl overflow-hidden border border-slate-200">
+                  <div className="flex items-center gap-1.5 px-3 py-2 border-b border-slate-100 bg-slate-50">
+                    <div className="w-2 h-2 rounded-full bg-red-400" />
+                    <div className="w-2 h-2 rounded-full bg-amber-400" />
+                    <div className="w-2 h-2 rounded-full bg-emerald-400" />
+                    <span className="ml-2 text-[10px] font-mono text-slate-400">pipeline_preview.exe</span>
+                  </div>
+                  <div className="relative aspect-video overflow-hidden">
+                    <Image
+                      src={HERO_SHOTS[0]}
+                      alt="Featured Project"
+                      className="object-cover w-full h-full"
+                      width={800}
+                      height={450}
+                      priority
+                    />
+                  </div>
+                </div>
+              </div>
+              
+              {/* Floating Data Point */}
+              <motion.div 
+                animate={{ y: [0, -10, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-6 -left-6 p-4 bg-white border border-slate-200 rounded-xl shadow-lg z-20 max-w-[180px]"
+              >
+                <div className="text-[10px] font-bold text-brand-accent uppercase tracking-wider mb-1">Status</div>
+                <div className="text-sm font-medium text-slate-900">1.2M rows extracted</div>
+                <div className="text-[10px] text-slate-400 mt-1">Verified • Cleaned • Synced</div>
+              </motion.div>
+            </motion.div>
+          </div>
+
         </div>
 
-        <div
-          data-r="proof"
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            marginTop: "6px",
-          }}
-        >
-          <div
-            style={{ display: "flex", paddingLeft: "10px" }}
-          >
-            {AVATARS.map((src, i) => (
-              <div
-                key={i}
-                style={{
-                  position: "relative",
-                  width: "38px",
-                  height: "38px",
-                  marginLeft: "-10px",
-                  border: "2px solid rgb(255, 255, 255)",
-                  borderRadius: "50%",
-                  backgroundColor: "rgb(238, 240, 242)",
-                  backgroundImage: `url(${src})`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center center",
-                  boxShadow: "rgba(24, 32, 43, 0.12) 0px 2px 6px",
-                  transition:
-                    "transform 0.25s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.25s",
-                  cursor: "pointer",
-                }}
-              />
-            ))}
-          </div>
-          <div
-            data-r="proof-text"
-            style={{
-              fontSize: "14px",
-              lineHeight: 1.4,
-              color: "rgb(91, 99, 110)",
-              textAlign: "left",
-            }}
-          >
-            <span style={{ color: "rgb(24, 32, 43)", fontWeight: 500 }}>
-              Join founders who automated their data.
-            </span>{" "}
-            <br />
-            Your project could be next.
-          </div>
-        </div>
-      </div>
-
-      <div
-        id="heroShots"
-        data-m-hide=""
-        style={{
-          position: "relative",
-          margin: "72px -20px 0px",
-          overflow: "auto hidden",
-          scrollbarWidth: "none",
-          cursor: "grab",
-          touchAction: "pan-x pan-y",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            gap: "16px",
-            paddingRight: "16px",
-            width: "max-content",
-          }}
-        >
-          {HERO_SHOTS.map((src, i) => (
-            <div key={i} style={SHOT_STYLE}>
-              <Image
-                src={src}
-                alt={`Project shot ${i + 1}`}
-                style={IMG_STYLE}
-                width={1400}
-                height={875}
-                priority={i < 3}
-              />
+        {/* Horizontal evidence strip (Simplified) */}
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-3 gap-8 border-t border-slate-100 pt-12">
+          {CHECKS.map((check, i) => (
+            <div key={i} className="flex items-start gap-3">
+              <div className="w-5 h-5 rounded bg-slate-900 text-white flex items-center justify-center text-[10px] shrink-0">
+                {i + 1}
+              </div>
+              <span className="text-sm font-medium text-slate-600">{check}</span>
             </div>
           ))}
         </div>
